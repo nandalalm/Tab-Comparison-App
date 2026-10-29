@@ -141,13 +141,21 @@ h1 .hl{color:var(--acc)}
 .tcard{display:flex;flex-direction:column;gap:2px;padding:12px;cursor:pointer;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:16px;min-width:0;
   opacity:0;transform:translateY(24px);transition:opacity .6s,transform .7s cubic-bezier(.2,1.2,.3,1),box-shadow .3s}
 .tcard.in{opacity:1;transform:none}
-.tcard:hover{box-shadow:0 18px 40px -22px rgba(0,0,0,.35);transform:translateY(-3px)}
+@media(hover:hover){.tcard:hover{box-shadow:0 18px 40px -22px rgba(0,0,0,.35);transform:translateY(-3px)}}
 .tcard .nm{font-weight:800;font-size:.98rem;line-height:1.15;margin-top:10px}
 .tcard .pr{font:700 1.1rem var(--mono);margin-top:4px}
 .tcard .bf{font-size:.76rem;color:var(--muted);line-height:1.3}
 .tcard .bf.win{color:var(--acc);font-weight:600}
-@media(max-width:400px){.tcard{padding:10px}.tcard .nm{font-size:.9rem}.tcard .pr{font-size:1rem}}
+@media(max-width:400px){.tcard .buy .arr{display:none}.tcard .buy{gap:4px}.tcard .buy a{padding:6px 2px;font-size:.68rem;letter-spacing:-.01em}.tcard{padding:10px}.tcard .nm{font-size:.9rem}.tcard .pr{font-size:1rem}}
 .home-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.buy{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.buy a{font:600 .7rem var(--mono);padding:5px 10px;border-radius:999px;border:1px solid var(--line2);color:var(--ink);background:var(--surface);white-space:nowrap;transition:background .2s,color .2s,border-color .2s}
+.buy a:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+/* cards share the grid's rows, so name / price / label / buttons line up across a row of cards */
+@supports (grid-template-rows:subgrid){.tcard{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:2px}.tcard .buy{align-self:end}}
+.tcard .buy{margin-top:auto;padding-top:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:6px}
+.tcard .buy a{text-align:center;padding:6px 4px;font:600 .74rem var(--display);overflow:hidden;text-overflow:ellipsis}
+.slot-out .buy{justify-content:center}
 
 /* bonus: frosted glass */
 .bonus{position:relative;margin-top:14px;border-radius:22px;isolation:isolate;
@@ -417,6 +425,7 @@ footer p{max-width:600px;margin:0 auto;font-size:.72rem;color:var(--dim)}
           <h3>Moto Pad 70 Pro</h3>
           <ul id="bonusList"></ul>
           <div class="ptag"><span class="old">₹38,999<i></i></span><span class="new">₹34,999</span><div class="stamp">SBI credit card required. Sorry, broke friends.</div></div>
+          <div id="bonusBuy"></div>
         </div>
         <div class="cry"><svg class="wallet" viewBox="0 0 64 52" aria-hidden="true">
           <rect x="4" y="10" width="56" height="38" rx="8" fill="#27272a"/><path d="M4 18 h56" stroke="#0f0f10" stroke-width="2"/>
@@ -613,6 +622,18 @@ const T = [
 const byId = id => T.find(t => t.id === id);
 const fullName = t => t.aka ? `${t.name} / ${t.aka}` : t.name;
 
+// store pages (tracking params stripped). The Moto Pad 60 Pro is on Flipkart; its Lenovo twin is on Amazon.
+const BUY = {
+  m60: [{ label: 'Flipkart', url: 'https://www.flipkart.com/motorola-pad-60-pro-8-gb-ram-128-rom-12-7-inch-wi-fi-only-gaming-mediatek-dimensity-8300-tablet-pantone-bronze-green/p/itm32831ab5b9ce5?pid=TABHBFQAWPWBEK5C' },
+        { label: 'Amazon (Lenovo)', short: 'Amazon', url: 'https://www.amazon.in/dp/B0DZCC8QZW' }],
+  redmi: [{ label: 'Amazon', url: 'https://www.amazon.in/dp/B0GDQ26XZB' }],
+  groove: [{ label: 'Flipkart', url: 'https://www.flipkart.com/motorola-pad-70-groove-8-gb-ram-128-rom-12-1-inch-wi-fi-only-gaming-tablet-pantone-blue-surf/p/itmc0267bcb73ec1?pid=TABHPBR4ZGEFFD72' }],
+  go2: [{ label: 'Amazon', url: 'https://www.amazon.in/dp/B0G4QQNK1K' }],
+  m70: [{ label: 'Flipkart', url: 'https://www.flipkart.com/motorola-pad-70-pro-box-moto-active-sylus-8-gb-ram-128-rom-13-inch-wi-fi-only-gaming-tablet-pantone-titan/p/itmbf8ca653cac5e?pid=TABHZGH3RXZXUZTJ' }],
+};
+const buyLink = (b, compact) => `<a href="${b.url}" target="_blank" rel="noopener noreferrer" title="${b.label}">${compact && b.short ? b.short : b.label}<span class="arr"> ↗</span></a>`;
+const buyLinks = (t, compact) => `<span class="buy">${BUY[t.id].map(b => buyLink(b, compact)).join('')}</span>`;
+
 /* ================= SCREEN SCENES (each tablet "plays" something on screen) ================= */
 const GRID = (() => { let d = ''; for (let x = 10; x < 160; x += 10) d += `M${x} 0V100`; for (let y = 10; y < 100; y += 10) d += `M0 ${y}H160`; return `<path class="grid" d="${d}"/>`; })();
 const SCENES = {
@@ -792,9 +813,14 @@ addEventListener('popstate', route);
 /* ================= HOME ================= */
 const cardsEl = $('#cards');
 T.filter(t => !t.bonus).forEach(t => cardsEl.insertAdjacentHTML('beforeend',
-  `<button class="tcard" data-id="${t.id}">${tabArt(t)}<span class="nm">${t.name}${t.aka ? `<span class="aka">aka ${t.aka}</span>` : ''}</span>
-   <span class="pr" data-count="${t.price}">₹0</span><span class="bf ${t.id === 'm60' ? 'win' : ''}">${nh(t.best, t.h.best)}</span></button>`));
-$$('.tcard').forEach(c => c.addEventListener('click', () => { setVS(c.dataset.id); go('compare'); }));
+  `<div class="tcard" data-id="${t.id}" role="button" tabindex="0">${tabArt(t)}<span class="nm">${t.name}<span class="aka">${t.aka ? 'aka ' + t.aka : 'Wi-Fi · 8GB / 128GB'}</span></span>
+   <span class="pr" data-count="${t.price}">₹0</span><span class="bf ${t.id === 'm60' ? 'win' : ''}">${nh(t.best, t.h.best)}</span>${buyLinks(t, true)}</div>`));
+// the card opens the comparison; the store links inside it just open the store
+$$('.tcard').forEach(c => {
+  const open = () => { setVS(c.dataset.id); go('compare'); };
+  c.addEventListener('click', e => { if (!e.target.closest('a')) open(); });
+  c.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target === c) { e.preventDefault(); open(); } });
+});
 let homeDone = false;
 enter.home = () => {
   if (homeDone) return; homeDone = true;
@@ -803,6 +829,7 @@ enter.home = () => {
 
 /* ---------- bonus: glass you crack 4 times, then it shatters ---------- */
 $('#bonusArt').innerHTML = tabArt(byId('m70'));
+$('#bonusBuy').innerHTML = buyLinks(byId('m70'));
 $('#bonusList').innerHTML = `<li>${nh('Snapdragon 8s Gen 4 · 2.5M+ AnTuTu (Motorola claim)', 'flagship brain. mentions it at every party.')}</li>
   <li>13″ 3.5K 144Hz · pen in the box · Wi-Fi 7</li><li>₹4,000 off with SBI card · +₹206 Flipkart fee</li>`;
 const bonus = $('#bonus'), glass = $('#glass'), cracks = $('#cracks'), shardsEl = $('#shards'), dots = $$('#dots i'), hint = $('#lockHint');
@@ -922,7 +949,7 @@ function renderVS(anim) {
     if (x != null && y != null && x !== y) { if (x > y) { ca = 'better'; cb = 'worse'; wa++; } else { ca = 'worse'; cb = 'better'; wb++; } }
     return `<div class="vs-row"><div class="vs-label">${nh(r.n, r.h)}</div><div class="vs-cell ${ca}">${r.f(A)}</div><div class="vs-cell ${cb}">${r.f(B)}</div></div>`;
   }).join('');
-  $('#vsHead').innerHTML = [A, B].map((t, i) => `<div class="vs-side ${anim ? (i ? 'slideR' : 'slideL') : ''}">${tabArt(t)}<h3>${t.name}${t.aka ? `<span class="aka">aka ${t.aka}</span>` : ''}</h3><div class="roast">“${t.roast}”</div></div>`).join('');
+  $('#vsHead').innerHTML = [A, B].map((t, i) => `<div class="vs-side ${anim ? (i ? 'slideR' : 'slideL') : ''}">${tabArt(t)}<h3>${t.name}${t.aka ? `<span class="aka">aka ${t.aka}</span>` : ''}</h3><div class="roast">“${t.roast}”</div>${buyLinks(t)}</div>`).join('');
   const lead = wa === wb ? null : wa > wb ? A : B;
   $('#vsTally').innerHTML = lead ? `<b>${lead.name}</b> wins ${Math.max(wa, wb)}–${Math.min(wa, wb)}.` : `Dead even, ${wa}–${wb}. Flip a coin.`;
   if (anim) Sound.whoosh();
@@ -1036,7 +1063,8 @@ function spin() {
     const idx = Math.floor(y / H); if (idx !== last) { last = idx; Sound.tick(); }
     if (p < 1) return requestAnimationFrame(f);
     spinning = false; machine.classList.remove('spinning'); machine.classList.add('won'); Sound.ding(); confetti();
-    $('#slotOut').innerHTML = `<b>${final}.</b> The machine has spoken. Stop asking Reddit.<br><span class="small">(Same tablet as the ${final === NAMES[0] ? 'Lenovo Idea Tab Pro' : 'Moto Pad 60 Pro'}. It was never going to lose.)${spins > 2 ? ` Spin #${spins}. Still the same answer.` : ''}</span>`;
+    $('#slotOut').innerHTML = `<b>${final}.</b> The machine has spoken. Stop asking Reddit.<br><span class="small">(Same tablet as the ${final === NAMES[0] ? 'Lenovo Idea Tab Pro' : 'Moto Pad 60 Pro'}. It was never going to lose.)${spins > 2 ? ` Spin #${spins}. Still the same answer.` : ''}</span>
+      <span class="buy">${buyLink({ ...(final === NAMES[0] ? BUY.m60[0] : BUY.m60[1]), label: 'Go buy it' })}</span>`;
   })(performance.now());
 }
 
