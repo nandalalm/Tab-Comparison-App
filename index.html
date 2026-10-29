@@ -1,0 +1,1136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Specs — Best Tablet Under ₹33K</title>
+<meta name="description" content="A sarcastic robot named Specs compares tablets under ₹33,000 in India.">
+<meta name="theme-color" content="#f4f4f5">
+<meta property="og:title" content="Best tablet under ₹33K? Specs has opinions.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='10' y='18' width='80' height='64' rx='20' fill='%2318181b'/%3E%3Cellipse cx='36' cy='50' rx='8' ry='10' fill='%23fff'/%3E%3Cellipse cx='64' cy='50' rx='8' ry='10' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f4f5;--surface:#fff;--ink:#0f0f10;--muted:#71717a;--dim:#a1a1aa;
+  --line:#e4e4e7;--line2:#d4d4d8;--soft:#ececee;
+  --acc:#ff5a1f;--good:#12a150;--bad:#e5484d;
+  --display:'Bricolage Grotesque',system-ui,-apple-system,Segoe UI,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--display);line-height:1.5;overflow-x:clip;min-height:100vh}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+.mono{font-family:var(--mono)}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+h1,h2,h3{line-height:1.02;letter-spacing:-.03em;margin:0;font-weight:800}
+.eyebrow{font:600 .7rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.small{font-size:.8rem;color:var(--muted)}
+.aka{display:block;font-size:.72rem;color:var(--muted);font-weight:500;letter-spacing:0;line-height:1.3}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 .95rem var(--display);padding:12px 20px;border-radius:999px;border:0;background:var(--ink);color:#fff;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(0,0,0,.5)}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line2)}
+.btn.ghost:hover{box-shadow:none;background:#fff}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px}
+.tag{font-style:normal;font:600 .58rem var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:5px;border:1px solid var(--line2);color:var(--muted)}
+.nh .h{display:none}
+body.human .nh .n{display:none}
+body.human .nh .h{display:inline}
+
+/* mascot */
+.specs{display:block;overflow:visible}
+.specs .sp-eyes{transform-box:view-box;transform-origin:50px 46px;animation:blink 4.6s infinite}
+.specs .sp-ant{transform-box:view-box;transform-origin:50px 22px;animation:wiggle 3.2s ease-in-out infinite}
+@keyframes blink{0%,90%,100%{transform:scaleY(1)}93%{transform:scaleY(.08)}96%{transform:scaleY(1)}}
+@keyframes wiggle{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(9deg)}}
+.specs-tap{cursor:pointer;background:none;border:0;padding:0;flex:none;-webkit-tap-highlight-color:transparent}
+.specs-tap.boing{animation:boing .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes boing{40%{transform:scale(.85,1.12)}}
+.specs-tap.spin{animation:spin360 .9s cubic-bezier(.3,1.4,.5,1)}
+@keyframes spin360{to{transform:rotate(360deg)}}
+.say{display:flex;align-items:center;gap:10px;margin:0 0 24px}
+.say .specs-tap{width:46px}
+.say p{margin:0;background:var(--surface);border:1px solid var(--line);padding:9px 13px;border-radius:14px 14px 14px 4px;font-size:.92rem;line-height:1.4;max-width:440px}
+
+/* loader */
+#loader{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;padding:24px;transition:opacity .5s,visibility .5s}
+#loader.out{opacity:0;visibility:hidden}
+.ld{width:min(340px,100%);text-align:center}
+.ld .specs{width:76px;margin:0 auto 14px}
+.ld-t{font-weight:600;margin:0 0 4px}
+.ld-pct{font:700 clamp(2.8rem,14vw,4rem) var(--mono);line-height:1}
+.ld-bar{height:4px;border-radius:99px;background:var(--line);overflow:hidden;margin:14px 0 10px}
+.ld-bar i{display:block;height:100%;width:0;background:var(--acc)}
+.ld-msg{min-height:1.5em;color:var(--muted);margin:0 0 16px;font-size:.92rem}
+
+/* navbar */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;height:62px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 16px;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(244,244,245,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.05rem;letter-spacing:-.02em}
+.brand .bspecs{width:26px}
+.links{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:2px;padding:4px;border-radius:999px;background:var(--surface);border:1px solid var(--line);box-shadow:0 6px 20px -12px rgba(0,0,0,.25)}
+.links a{position:relative;z-index:1;display:flex;align-items:center;gap:7px;padding:7px 16px;border-radius:999px;font-size:.88rem;font-weight:600;color:var(--muted);transition:color .3s}
+.links a svg{width:16px;height:16px}
+.links a.on{color:#fff}
+.links a:not(.on):hover{color:var(--ink)}
+.links .ind{position:absolute;z-index:0;top:4px;bottom:4px;left:0;width:0;border-radius:999px;background:var(--ink);transition:transform .45s cubic-bezier(.3,1.3,.4,1),width .45s cubic-bezier(.3,1.3,.4,1)}
+.nav-r{display:flex;gap:6px;align-items:center}
+.seg{display:flex;border:1px solid var(--line2);border-radius:999px;padding:3px;background:var(--surface);cursor:pointer}
+.seg span{padding:3px 9px;border-radius:999px;font-size:.75rem;font-weight:600;color:var(--muted);transition:background .25s,color .25s}
+.seg span.on{background:var(--ink);color:#fff}
+.icon-btn{width:34px;height:34px;border-radius:50%;border:1px solid var(--line2);background:var(--surface);display:grid;place-items:center;cursor:pointer;flex:none}
+.icon-btn svg{width:16px;height:16px}
+@media(max-width:720px){
+  /* a backdrop-filter on .nav would trap the fixed pill inside the header */
+  .nav.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(244,244,245,.96)}
+  .links{position:fixed;top:auto;bottom:max(14px,env(safe-area-inset-bottom));box-shadow:0 14px 34px -10px rgba(0,0,0,.3);padding:5px}
+  .links a{flex-direction:column;gap:2px;padding:7px 18px;font-size:.68rem}
+  .links a svg{width:18px;height:18px}
+  main{padding-bottom:90px}
+}
+@media(max-width:360px){.brand span+*{display:none}.seg span{padding:3px 7px}.links a{padding:7px 14px}}
+
+.toast{position:fixed;left:50%;top:72px;z-index:70;transform:translate(-50%,-10px);opacity:0;pointer-events:none;background:var(--ink);color:#fff;padding:8px 15px;border-radius:999px;font-size:.86rem;width:max-content;max-width:calc(100vw - 32px);text-align:center;transition:opacity .3s,transform .3s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* pages */
+.page{display:none;padding:92px 0 40px}
+.page.active{display:block;animation:pageIn .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes pageIn{from{opacity:0;transform:translateY(12px)}}
+.page h2{font-size:clamp(1.9rem,7vw,3.2rem);margin-bottom:8px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:520px}
+.sec{margin-top:72px}
+
+/* tablet art + animated screens */
+.art-box{aspect-ratio:16/10;display:grid;place-items:center;width:100%}
+.tab-art{position:relative;height:100%;max-width:100%;border-radius:9px;border:4px solid #18181b;background:#18181b;overflow:hidden}
+.tab-art .scr{position:absolute;inset:0;background:#1c1c1f}
+.tab-art .scr::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.18) 48%,transparent 60%);transform:translateX(-120%);pointer-events:none}
+.in .tab-art .scr::after{animation:glare 1.4s .3s ease-out forwards}
+@keyframes glare{to{transform:translateX(120%)}}
+.scene{position:absolute;inset:0;width:100%;height:100%;display:block}
+.scene text{font-family:var(--mono);font-size:6.5px;fill:#8b8b94;letter-spacing:.04em}
+.scene .grid{stroke:rgba(255,255,255,.05);stroke-width:.5}
+.scene .dr{fill:none;stroke:#d4d4d8;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 7s var(--d,0s) infinite}
+.scene .acc{stroke:var(--acc)}
+@keyframes draw{0%{stroke-dashoffset:1;opacity:1}35%{stroke-dashoffset:0}85%{stroke-dashoffset:0;opacity:1}95%,100%{stroke-dashoffset:0;opacity:0}}
+.scene .bat{transform-box:fill-box;transform-origin:left;animation:charge 4s ease-in-out infinite}
+@keyframes charge{0%{transform:scaleX(.05);fill:#e5484d}30%{fill:#d4d4d8}80%,100%{transform:scaleX(1);fill:#d4d4d8}}
+.scene .eq{transform-box:fill-box;transform-origin:bottom;animation:eq var(--t,.8s) ease-in-out var(--d,0s) infinite alternate;fill:#d4d4d8}
+@keyframes eq{from{transform:scaleY(.15)}to{transform:scaleY(1)}}
+.scene .prog{transform-box:fill-box;transform-origin:left;animation:prog 8s linear infinite}
+@keyframes prog{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.scene .pop{opacity:0;animation:popin 7s infinite}
+@keyframes popin{0%,40%{opacity:0}48%,85%{opacity:1}95%,100%{opacity:0}}
+.scene .orbit{transform-box:view-box;transform-origin:80px 46px;animation:orbit 10s linear infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.scene .pulse{transform-box:fill-box;transform-origin:center;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.5);opacity:.6}}
+
+/* home */
+h1{font-size:clamp(2.6rem,11vw,6.2rem);letter-spacing:-.05em;line-height:.92}
+h1 .hl{color:var(--acc)}
+.lede{color:var(--muted);font-size:1.08rem;margin:14px 0 30px}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media(max-width:700px){.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+.tcard{display:flex;flex-direction:column;gap:2px;padding:12px;cursor:pointer;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:16px;min-width:0;
+  opacity:0;transform:translateY(24px);transition:opacity .6s,transform .7s cubic-bezier(.2,1.2,.3,1),box-shadow .3s}
+.tcard.in{opacity:1;transform:none}
+.tcard:hover{box-shadow:0 18px 40px -22px rgba(0,0,0,.35);transform:translateY(-3px)}
+.tcard .nm{font-weight:800;font-size:.98rem;line-height:1.15;margin-top:10px}
+.tcard .pr{font:700 1.1rem var(--mono);margin-top:4px}
+.tcard .bf{font-size:.76rem;color:var(--muted);line-height:1.3}
+.tcard .bf.win{color:var(--acc);font-weight:600}
+@media(max-width:400px){.tcard{padding:10px}.tcard .nm{font-size:.9rem}.tcard .pr{font-size:1rem}}
+.home-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+
+/* bonus: frosted glass */
+.bonus{position:relative;margin-top:14px;border-radius:22px;isolation:isolate;
+  background:radial-gradient(60% 90% at 15% 20%,rgba(255,90,31,.35),transparent 70%),radial-gradient(50% 80% at 90% 90%,rgba(15,15,16,.18),transparent 70%),var(--surface);border:1px solid var(--line)}
+.bonus-body{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;padding:24px;min-height:250px;max-height:290px;overflow:hidden;border-radius:22px;transition:max-height .9s cubic-bezier(.3,.8,.3,1)}
+.bonus.open .bonus-body{max-height:1200px}
+@media(min-width:760px){.bonus-body{grid-template-columns:200px 1fr auto;align-items:center}}
+.bonus-body h3{font-size:clamp(1.4rem,5vw,1.7rem)}
+.bonus-body ul{list-style:none;padding:0;margin:6px 0 0;font-size:.88rem;color:var(--muted);display:grid;gap:2px}
+.glass{position:absolute;inset:0;z-index:3;border-radius:22px;cursor:pointer;overflow:hidden;display:grid;place-items:center;text-align:center;padding:20px;-webkit-tap-highlight-color:transparent;user-select:none;
+  background:linear-gradient(135deg,rgba(255,255,255,.62),rgba(255,255,255,.28));backdrop-filter:blur(12px) saturate(1.4);-webkit-backdrop-filter:blur(12px) saturate(1.4);
+  border:1px solid rgba(255,255,255,.9);box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 rgba(0,0,0,.04),0 24px 60px -34px rgba(0,0,0,.45);transition:transform .2s}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:rgba(250,250,250,.94)}}
+.glass::after{content:"";position:absolute;inset:-40%;background:linear-gradient(115deg,transparent 44%,rgba(255,255,255,.75) 50%,transparent 56%);animation:sheen 4.5s ease-in-out infinite;pointer-events:none}
+@keyframes sheen{0%{transform:translateX(-55%)}55%,100%{transform:translateX(55%)}}
+.glass:hover{transform:scale(1.005)}
+.glass.shake{animation:shake .32s}
+@keyframes shake{25%{transform:translateX(-6px) rotate(-.4deg)}50%{transform:translateX(6px) rotate(.4deg)}75%{transform:translateX(-3px)}}
+.glass.gone{visibility:hidden}
+.glass-ui{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;transition:opacity .15s}
+.glass.breaking .glass-ui{opacity:0}
+.bchip{font:700 .62rem var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:var(--ink);color:#fff}
+.glass .padlock{width:50px;overflow:visible;margin-top:6px;animation:nudge 2.6s ease-in-out infinite}
+@keyframes nudge{0%,80%,100%{transform:rotate(0)}85%{transform:rotate(-10deg)}90%{transform:rotate(8deg)}95%{transform:rotate(-4deg)}}
+.glass strong{font-size:clamp(1.4rem,5vw,1.9rem);font-weight:800;letter-spacing:-.03em}
+.glass small{color:#3f3f46;font-size:.9rem;max-width:300px}
+.dots{display:flex;gap:6px;margin-top:4px}
+.dots i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--ink);transition:background .2s,transform .2s}
+.dots i.f{background:var(--acc);border-color:var(--acc);transform:scale(1.15)}
+.cracks{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible;filter:drop-shadow(0 1px 0 rgba(255,255,255,.9))}
+.cracks path{fill:none;stroke:rgba(15,15,16,.55);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:crackin .22s ease-out forwards}
+.cracks path.ring{stroke-width:.9;stroke:rgba(15,15,16,.4)}
+@keyframes crackin{to{stroke-dashoffset:0}}
+.shards{position:absolute;inset:0;z-index:4;pointer-events:none}
+.shard{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(240,240,242,.6));will-change:transform,opacity}
+.ptag{position:relative;display:inline-flex;flex-direction:column;padding:10px 14px;border-radius:12px;background:var(--bg);margin-top:10px;width:max-content}
+.ptag .old{position:relative;font:600 1rem var(--mono);color:var(--muted);width:max-content}
+.ptag .old i{position:absolute;left:-4px;right:-4px;top:52%;height:2px;background:var(--bad);transform:scaleX(0);transform-origin:left;transition:transform .45s .5s cubic-bezier(.6,0,.2,1)}
+.ptag .new{font:700 1.8rem var(--mono);opacity:0;transform:translateY(8px);transition:all .5s 1s}
+.bonus.open .ptag .old i{transform:scaleX(1)}
+.bonus.open .ptag .new{opacity:1;transform:none}
+.stamp{position:absolute;left:108%;top:50%;transform:translateY(-50%) rotate(-10deg) scale(2.4);opacity:0;border:2.5px solid var(--bad);color:var(--bad);font:800 .62rem var(--mono);text-transform:uppercase;padding:5px 8px;border-radius:7px;line-height:1.25;background:#fff;text-align:center;width:140px;transition:transform .35s 1.6s cubic-bezier(.5,1.6,.6,1),opacity .2s 1.6s}
+.bonus.open .stamp{transform:translateY(-50%) rotate(-10deg) scale(1);opacity:1}
+@media(max-width:480px){.stamp{position:relative;left:auto;top:auto;transform:rotate(-6deg) scale(2.4);margin-top:10px;width:170px}.bonus-body{padding:18px}.bonus.open .stamp{transform:rotate(-6deg) scale(1)}}
+.cry{text-align:center}
+.wallet{width:64px;margin:0 auto;display:block;overflow:visible;animation:sob 1.2s ease-in-out infinite}
+.wallet .tear{animation:tear 1.2s ease-in infinite;opacity:0}
+.wallet .tear.t2{animation-delay:.6s}
+@keyframes tear{0%{opacity:0;transform:translateY(0)}15%{opacity:1}100%{opacity:0;transform:translateY(24px)}}
+@keyframes sob{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg) translateY(2px)}}
+.cry small{display:block;color:var(--bad);font:600 .7rem var(--mono);margin-top:4px}
+.bonus-line{grid-column:1/-1;font-size:clamp(1.1rem,4vw,1.45rem);font-weight:800;letter-spacing:-.02em;margin:0;opacity:0;transition:opacity .6s 2.4s}
+.bonus.open .bonus-line{opacity:1}
+.bonus-line em{font-style:normal;color:var(--acc)}
+
+/* podium */
+.podium{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:end;gap:10px;max-width:560px}
+.pod{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;min-width:0}
+.pod .top{opacity:0;transform:translateY(14px);transition:all .6s var(--d2)}
+.podium.go .pod .top{opacity:1;transform:none}
+.pod h3{font-size:clamp(.82rem,2.6vw,1.05rem);line-height:1.15}
+.badge{display:inline-block;font:600 .6rem var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-top:3px}
+.pod-block{width:100%;border-radius:10px 10px 3px 3px;display:grid;place-items:start center;padding-top:8px;font:800 1.8rem var(--display);color:#fff;background:var(--b);transform:scaleY(0);transform-origin:bottom;transition:transform .9s cubic-bezier(.3,1.3,.4,1) var(--d)}
+.podium.go .pod-block{transform:scaleY(1)}
+.verdict-note{color:var(--muted);font-size:.95rem;max-width:560px;margin:20px 0 0}
+.verdict-note b{color:var(--ink)}
+.skip{margin-top:10px;font-size:.84rem;color:var(--muted);max-width:560px}
+.skip b{color:var(--bad)}
+
+/* compare */
+.tabs{display:flex;gap:2px;padding:4px;border-radius:12px;background:var(--surface);border:1px solid var(--line);margin-bottom:22px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:1 0 auto;border:0;background:transparent;padding:8px 13px;border-radius:9px;font-weight:600;font-size:.86rem;color:var(--muted);cursor:pointer;transition:background .25s,color .25s;white-space:nowrap}
+.tabs button.on{background:var(--ink);color:#fff}
+@media(max-width:420px){.tabs button{padding:8px 10px;font-size:.8rem}}
+.tpanel{display:none}
+.tpanel.on{display:block;animation:pageIn .4s}
+.vs-pick{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:8px;align-items:center;margin-bottom:16px}
+.sel{appearance:none;-webkit-appearance:none;width:100%;min-width:0;font:700 .9rem var(--display);padding:10px 28px 10px 12px;border-radius:11px;border:1px solid var(--line2);color:var(--ink);text-overflow:ellipsis;
+  background:var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2371717a' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat right 10px center;cursor:pointer}
+@media(max-width:420px){.sel{font-size:.8rem;padding:9px 24px 9px 9px;background-position:right 7px center}}
+.vs-badge{width:38px;height:38px;border-radius:50%;font-weight:800;font-size:.75rem;background:var(--ink);color:#fff;border:0;cursor:pointer}
+.vs-head{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:4px}
+.vs-side{padding:2px 0 12px;min-width:0}
+.vs-side .art-box{max-width:140px}
+.vs-side h3{font-size:clamp(1rem,3.4vw,1.3rem);margin-top:10px}
+.vs-side .roast{font-size:.8rem;color:var(--muted);font-style:italic;margin-top:6px;line-height:1.35}
+.vs-side.slideL{animation:slideL .55s cubic-bezier(.2,1.1,.3,1)}
+.vs-side.slideR{animation:slideR .55s cubic-bezier(.2,1.1,.3,1)}
+@keyframes slideL{from{opacity:0;transform:translateX(-40px)}}
+@keyframes slideR{from{opacity:0;transform:translateX(40px)}}
+.vs-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3px 12px;padding:9px 0;border-top:1px solid var(--line)}
+.vs-label{grid-column:1/-1;font:600 .62rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.vs-cell{font-size:.9rem;line-height:1.3;padding-left:9px;border-left:2px solid transparent;overflow-wrap:anywhere}
+@media(max-width:420px){.vs-cell{font-size:.82rem}}
+.vs-cell.better{color:var(--good);border-color:var(--good);font-weight:600}
+.vs-cell.worse{color:var(--bad);border-color:var(--bad)}
+.vs-tally{margin:14px 0 0;color:var(--muted);font-size:.9rem}
+.vs-tally b{color:var(--ink)}
+
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.chip{border:1px solid var(--line2);background:var(--surface);border-radius:999px;padding:6px 12px;font-size:.8rem;font-weight:600;cursor:pointer;transition:background .2s,color .2s,border-color .2s,opacity .2s}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.bline{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:4px 10px;padding:8px 0;align-items:end}
+.bname{font-weight:600;font-size:.9rem;display:flex;align-items:center;gap:6px;flex-wrap:wrap;line-height:1.2}
+.bval{font:.72rem var(--mono);color:var(--muted);text-align:right;line-height:1.3}
+body.human .bval{font-family:var(--display);font-size:.8rem;font-style:italic}
+.btrack{grid-column:1/-1;height:8px;border-radius:99px;background:var(--soft)}
+.bfill{height:100%;width:0;border-radius:inherit;background:var(--line2);transition:width 1.2s cubic-bezier(.2,.8,.2,1) var(--d,0s),background .4s}
+.race.go .bfill{width:var(--w)}
+.crown{display:inline-block;transform:scale(0) rotate(-40deg);transition:transform .55s cubic-bezier(.3,1.8,.5,1)}
+.bline.win.crowned .crown{transform:scale(1) rotate(-12deg)}
+.bline.win.crowned .bfill{background:var(--acc)}
+
+.rank-grid{display:grid;gap:22px}
+@media(min-width:820px){.rank-grid{grid-template-columns:1fr 1fr}}
+.sl{margin:0 0 8px}
+.sl label{display:flex;justify-content:space-between;font-weight:600;font-size:.88rem}
+.sl output{font-family:var(--mono);color:var(--muted)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:transparent;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:99px;background:linear-gradient(90deg,var(--ink) var(--p,50%),var(--line2) var(--p,50%))}
+input[type=range]::-moz-range-track{height:4px;border-radius:99px;background:var(--line2)}
+input[type=range]::-moz-range-progress{height:4px;border-radius:99px;background:var(--ink)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:#fff;border:2px solid var(--ink);margin-top:-8px;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid var(--ink)}
+.check{display:flex;gap:8px;align-items:center;font-size:.84rem;color:var(--muted);cursor:pointer;margin-top:6px}
+.check input{accent-color:var(--ink);width:16px;height:16px;flex:none}
+.rank-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.rk{display:grid;grid-template-columns:26px minmax(0,1fr) auto;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:var(--surface);border:1px solid var(--line);will-change:transform}
+.rk:first-child{border-color:var(--ink)}
+.rk-n{font-weight:800;font-size:1.15rem;color:var(--dim);text-align:center}
+.rk:first-child .rk-n{color:var(--acc)}
+.rk-name{font-weight:700;font-size:.9rem;line-height:1.2}
+.rk-bar{height:4px;border-radius:99px;background:var(--soft);margin-top:6px}
+.rk-bar i{display:block;height:100%;border-radius:inherit;background:var(--line2);transition:width .5s}
+.rk:first-child .rk-bar i{background:var(--acc)}
+.rk-pct{font:700 .92rem var(--mono)}
+
+.tl-years{display:grid;grid-template-columns:repeat(8,1fr);font:600 .62rem var(--mono);color:var(--dim);margin-bottom:6px;position:relative}
+.tl-years span{border-left:1px solid var(--line2);padding-left:3px}
+.tl-years span:last-child::after{content:"2033";position:absolute;right:0}
+@media(max-width:420px){.tl-years{font-size:.52rem}}
+.tl-row{margin:10px 0 14px}
+.tl-name{font-weight:600;font-size:.88rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:2px 8px;margin-bottom:4px;line-height:1.25}
+.tl-name small{font:.7rem var(--mono);color:var(--muted)}
+.tl-track{position:relative;height:14px;border-radius:5px;background:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 12.5%),var(--surface)}
+.tl-fill{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:5px;background:var(--ink);transition:width 1.6s cubic-bezier(.3,.7,.2,1) var(--d,0s)}
+.tl-row.best .tl-fill{background:var(--acc)}
+.tl.go .tl-fill{width:var(--w)}
+.tl-now{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--acc)}
+.tl-lbl{font:600 .62rem var(--mono);color:var(--acc);position:relative;height:14px}
+.tl-lbl span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+
+.scr-svg{width:100%;height:auto;display:block;max-height:380px}
+.scr-svg rect.o{fill:none;stroke-width:1.8;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s cubic-bezier(.4,.1,.2,1),opacity .3s}
+.size.go .scr-svg rect.o{stroke-dashoffset:0}
+.scr-svg .off{opacity:0}
+.chip i{display:inline-block;width:8px;height:8px;border-radius:2px;background:var(--c);margin-right:6px}
+.chip.dim{opacity:.35}
+.note{font-size:.76rem;color:var(--dim);margin-top:14px}
+
+/* lever */
+.slot-wrap{display:grid;grid-template-columns:minmax(0,1fr) 64px;align-items:end;max-width:540px;margin:0 auto}
+.machine{position:relative;z-index:1;padding:12px 14px 14px;border-radius:24px;background:var(--surface);border:1px solid var(--line);box-shadow:0 30px 60px -40px rgba(0,0,0,.45),inset 0 1px 0 #fff}
+.machine-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 2px 10px;font:700 .66rem var(--mono);letter-spacing:.18em;color:var(--muted)}
+.lights{display:flex;gap:5px}
+.lights i{width:6px;height:6px;border-radius:50%;background:var(--line2);animation:bulbs 1.2s steps(1) infinite}
+.lights i:nth-child(even){animation-delay:.6s}
+@keyframes bulbs{50%{background:var(--acc);box-shadow:0 0 6px var(--acc)}}
+.machine.spinning .lights i{animation-duration:.24s}
+.reel-win{position:relative;height:192px;overflow:hidden;border-radius:12px;background:var(--bg);
+  -webkit-mask-image:linear-gradient(transparent,#000 28%,#000 72%,transparent);mask-image:linear-gradient(transparent,#000 28%,#000 72%,transparent)}
+.reel-win::after{content:"";position:absolute;left:6px;right:6px;top:64px;height:64px;border-radius:10px;border:2px solid var(--ink);pointer-events:none;transition:border-color .3s}
+.machine.won .reel-win::after{border-color:var(--acc);animation:winflash .6s 3}
+@keyframes winflash{50%{background:rgba(255,90,31,.08)}}
+.reel{will-change:transform}
+.reel div{height:64px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:clamp(.95rem,4.4vw,1.5rem);letter-spacing:-.02em;white-space:nowrap;padding:0 8px}
+/* lever: an arm on a side mount, rotated in 3D around its pivot so the ball swings toward you */
+.lever{position:relative;height:236px;margin-left:-16px;perspective:520px;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent;border-radius:12px}
+.lever:active{cursor:grabbing}
+.lever .mount{position:absolute;left:50%;bottom:30px;width:34px;height:76px;margin-left:-17px;border-radius:12px;background:linear-gradient(90deg,#3f3f46,#18181b 55%,#27272a);box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 10px 20px -10px rgba(0,0,0,.6)}
+.lever .mount::before{content:"";position:absolute;right:60%;top:20px;width:34px;height:36px;border-radius:8px;background:linear-gradient(180deg,#3f3f46,#18181b);z-index:-1}
+.lever .slot{position:absolute;left:50%;top:12px;bottom:12px;width:6px;margin-left:-3px;border-radius:3px;background:#000}
+.lever .arm{position:absolute;left:50%;bottom:68px;width:10px;height:128px;margin-left:-5px;transform-origin:50% 100%;transform-style:preserve-3d}
+.lever .rod{position:absolute;inset:0;border-radius:5px;background:linear-gradient(90deg,#71717a,#f4f4f5 40%,#a1a1aa 75%,#52525b)}
+.lever .knob{position:absolute;left:50%;top:-18px;width:40px;height:40px;margin-left:-20px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#ffc2a8 0,#ff6a2e 30%,#e04a12 62%,#8f2c06 100%);box-shadow:0 10px 20px -6px rgba(255,90,31,.6)}
+.lever .cap{position:absolute;left:50%;bottom:57px;width:22px;height:22px;margin-left:-11px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#8b8b94,#18181b 70%);box-shadow:0 2px 4px rgba(0,0,0,.4)}
+.lever.spring .arm,.lever.spring .knob{transition:transform .65s cubic-bezier(.3,1.7,.5,1)}
+.lever.pulling .arm,.lever.pulling .knob{transition:transform .26s cubic-bezier(.5,0,.9,.5)}
+.lever.idle .arm{animation:beckon 3.2s ease-in-out infinite}
+@keyframes beckon{0%,78%,100%{transform:rotateX(0)}85%{transform:rotateX(-24deg)}91%{transform:rotateX(0)}95%{transform:rotateX(-8deg)}}
+.lever-hint{text-align:center;font-size:.8rem;color:var(--muted);margin:10px 0 0}
+.slot-out{text-align:center;min-height:3.2em;margin:14px auto 0;max-width:520px}
+.slot-out b{font-size:1.15rem}
+.parents{max-width:520px;margin:12px auto 0;text-align:center}
+.p-out{font-size:1rem;min-height:2.8em;margin:10px 0 0}
+.share-wrap{display:grid;gap:14px;justify-items:center}
+.share-wrap .chips{justify-content:center;margin:0}
+.vcard{width:min(360px,100%);aspect-ratio:4/5;border-radius:22px;padding:22px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;background:var(--surface);border:1px solid var(--line);box-shadow:0 30px 60px -36px rgba(0,0,0,.4)}
+.vcard .vk{font:700 .7rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.vcard h3{font-size:clamp(1.8rem,9vw,2.8rem);letter-spacing:-.04em;line-height:.95;margin-top:8px;position:relative;z-index:1;max-width:85%}
+.vcard h3::after{content:"";display:block;width:44px;height:4px;background:var(--acc);border-radius:2px;margin-top:12px}
+.vcard .vp{font:700 1.15rem var(--mono);margin-top:10px}
+.vcard .vline{font-size:.98rem;line-height:1.35;position:relative;z-index:1;background:rgba(255,255,255,.85);border-radius:8px;max-width:88%}
+.vcard .vfoot{display:flex;align-items:center;gap:10px;font-size:.72rem;color:var(--muted);position:relative;z-index:1}
+.vcard .vfoot .specs{width:36px;flex:none}
+.vcard .art-box{width:52%;position:absolute;right:-10%;top:34%;transform:rotate(-14deg)}
+
+footer{padding:30px 0 40px;text-align:center}
+footer p{max-width:600px;margin:0 auto;font-size:.72rem;color:var(--dim)}
+@media(max-width:720px){footer{padding-bottom:110px}}
+.modal{position:fixed;inset:0;z-index:90;background:rgba(15,15,16,.45);display:grid;place-items:center;padding:20px}
+.modal[hidden]{display:none}
+.modal-c{max-width:360px;padding:24px;text-align:center}
+.modal-c .specs{width:80px;margin:0 auto 10px}
+.modal-c h3{font-size:1.35rem;margin-bottom:8px}
+.confetti{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:95}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .scene .dr{stroke-dashoffset:0}
+}
+</style>
+</head>
+<body>
+
+<div id="loader" role="dialog" aria-label="Loading">
+  <div class="ld">
+    <div data-specs></div>
+    <p class="ld-t">Calculating your poor life choices…</p>
+    <div class="ld-pct" id="ldPct">0%</div>
+    <div class="ld-bar"><i id="ldBar"></i></div>
+    <p class="ld-msg" id="ldMsg">&nbsp;</p>
+    <button id="ldSkip" class="btn ghost">Skip →</button>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#/"><span class="bspecs" data-specs></span><span>Specs</span></a>
+  <nav class="links" id="links" aria-label="Pages">
+    <span class="ind" id="ind"></span>
+    <a href="#/" data-page="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Home</span></a>
+    <a href="#/compare" data-page="compare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 20V10M12 20V4M18 20v-7"/></svg><span>Compare</span></a>
+    <a href="#/lever" data-page="lever"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="17" cy="5" r="2.5"/><path d="M17 7.5V16M4 16h16v4H4z"/></svg><span>Lever</span></a>
+  </nav>
+  <div class="nav-r">
+    <button id="modeBtn" class="seg" title="Nerd: real spec names. Human: the specs, roasted." aria-label="Switch between nerd and human wording" aria-pressed="false"><span class="on">Nerd</span><span>Human</span></button>
+    <button id="muteBtn" class="icon-btn" aria-label="Mute sound"></button>
+  </div>
+</header>
+<div class="toast" id="toast" aria-live="polite"></div>
+
+<main>
+<!-- HOME -->
+<section class="page" id="p-home">
+  <div class="wrap">
+    <div class="say"><button class="specs-tap" data-specs aria-label="Specs"></button><p>I'm Specs. I read the spec sheets so you don't have to.</p></div>
+    <h1>Best tablet<br>under <span class="hl">₹33K</span>?</h1>
+    <p class="lede">Four tablets. One budget. Zero mercy.</p>
+    <div class="cards" id="cards"></div>
+
+    <div class="bonus" id="bonus">
+      <div class="bonus-body">
+        <div id="bonusArt"></div>
+        <div>
+          <p class="eyebrow" style="margin:0">Bonus · over budget</p>
+          <h3>Moto Pad 70 Pro</h3>
+          <ul id="bonusList"></ul>
+          <div class="ptag"><span class="old">₹38,999<i></i></span><span class="new">₹34,999</span><div class="stamp">SBI credit card required. Sorry, broke friends.</div></div>
+        </div>
+        <div class="cry"><svg class="wallet" viewBox="0 0 64 52" aria-hidden="true">
+          <rect x="4" y="10" width="56" height="38" rx="8" fill="#27272a"/><path d="M4 18 h56" stroke="#0f0f10" stroke-width="2"/>
+          <rect x="40" y="24" width="22" height="14" rx="5" fill="#3f3f46"/><circle cx="50" cy="31" r="2.5" fill="#ff5a1f"/>
+          <path d="M14 28 q4 -4 8 0 M27 28 q4 -4 8 0 M19 40 q6 -6 12 0" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <path class="tear" d="M17 31 q-2 4 0 6 q2 -2 0 -6z" fill="#60a5fa"/><path class="tear t2" d="M33 31 q-2 4 0 6 q2 -2 0 -6z" fill="#60a5fa"/></svg>
+          <small>₹1,999 over</small></div>
+        <p class="bonus-line">If it ain't broke (<em>your bank account</em>, I mean), buy this.</p>
+      </div>
+      <div class="glass" id="glass" role="button" tabindex="0" aria-label="Tap the glass four times to break it">
+        <svg class="cracks" id="cracks" aria-hidden="true"></svg>
+        <div class="glass-ui">
+          <span class="bchip">Bonus round</span>
+          <svg class="padlock" viewBox="0 0 140 150" aria-hidden="true">
+            <path d="M40 70 V45 a30 30 0 0 1 60 0 V70" stroke="#0f0f10" stroke-width="12" fill="none" stroke-linecap="round"/>
+            <rect x="22" y="66" width="96" height="76" rx="18" fill="#0f0f10"/>
+            <circle cx="70" cy="98" r="10" fill="#ff5a1f"/><rect x="66" y="100" width="8" height="22" rx="4" fill="#ff5a1f"/>
+          </svg>
+          <strong>Rich people only</strong>
+          <small id="lockHint">There's a fifth tablet behind this glass. Tap it 4 times.</small>
+          <span class="dots" id="dots"><i></i><i></i><i></i><i></i></span>
+        </div>
+      </div>
+      <div class="shards" id="shards"></div>
+    </div>
+
+    <div class="sec">
+      <p class="eyebrow">The short answer</p>
+      <h2>The podium.</h2>
+      <div class="podium" id="podium"></div>
+      <p class="verdict-note"><b>Buy the Moto Pad 60 Pro, also sold as the Lenovo Idea Tab Pro.</b> Same tablet, two names, both ₹29,999. It has the fastest chip in budget and a free pen. The catch: its updates die first (~2029).</p>
+      <p class="skip"><b>Skip</b> the OnePlus Pad Go 2: ₹29,447 for a ₹26,999 tablet. <b>Hall of Shame:</b> Lenovo Idea Tab Plus, ₹32,788 for a Dimensity 6400 and 90Hz. That's ~₹4,800 over its launch price.</p>
+      <div class="home-cta"><a class="btn" href="#/compare">Compare them</a><a class="btn ghost" href="#/lever">Just pick for me</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="page" id="p-compare">
+  <div class="wrap">
+    <div class="say"><button class="specs-tap" data-specs aria-label="Specs"></button><p id="cmpQuip">Pick two. Let them fight.</p></div>
+    <h2>Compare</h2>
+    <div class="tabs" role="tablist" id="tabs">
+      <button class="on" data-tab="vs">Head to head</button>
+      <button data-tab="race">Race</button>
+      <button data-tab="rank">Priorities</button>
+      <button data-tab="upd">Updates</button>
+      <button data-tab="size">Size</button>
+    </div>
+
+    <div class="tpanel on" id="t-vs">
+      <div class="vs-pick">
+        <select id="vsA" class="sel" aria-label="First tablet"></select>
+        <button class="vs-badge" id="vsSwap" aria-label="Swap tablets">VS</button>
+        <select id="vsB" class="sel" aria-label="Second tablet"></select>
+      </div>
+      <div class="vs-head" id="vsHead"></div>
+      <div id="vsTable"></div>
+      <p class="vs-tally" id="vsTally"></p>
+    </div>
+
+    <div class="tpanel" id="t-race">
+      <div class="chips" id="raceChips"></div>
+      <div class="race" id="race"></div>
+      <p class="note">RAM/storage bars use typical max speeds per standard. AnTuTu is approximate.</p>
+    </div>
+
+    <div class="tpanel" id="t-rank">
+      <div class="rank-grid">
+        <div><div id="sliders"></div><label class="check"><input type="checkbox" id="incBonus"> Include the rich one (Moto Pad 70 Pro)</label></div>
+        <ol class="rank-list" id="rankList"></ol>
+      </div>
+    </div>
+
+    <div class="tpanel tl" id="t-upd"></div>
+
+    <div class="tpanel size" id="t-size">
+      <svg class="scr-svg" id="scrSvg" role="img" aria-label="Screen sizes drawn to scale"></svg>
+      <div class="chips" id="scrLegend" style="margin-top:14px"></div>
+      <p class="note">To scale from real diagonals and aspect ratios. Tap a name to hide it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LEVER -->
+<section class="page" id="p-lever">
+  <div class="wrap">
+    <div class="say"><button class="specs-tap" data-specs aria-label="Specs"></button><p>When in doubt, gamble. (Don't actually gamble.)</p></div>
+    <h2>Pull the lever.</h2>
+    <p class="sub">Totally fair. Not rigged at all.</p>
+    <div class="slot-wrap">
+      <div class="machine" id="machine">
+        <div class="machine-top"><span class="lights"><i></i><i></i><i></i><i></i></span><span>SPECS-O-MATIC</span><span class="lights"><i></i><i></i><i></i><i></i></span></div>
+        <div class="reel-win"><div class="reel" id="reel"></div></div>
+      </div>
+      <div class="lever idle" id="lever" role="button" tabindex="0" aria-label="Pull the lever">
+        <span class="mount"><span class="slot"></span></span>
+        <span class="arm" id="arm"><span class="rod"></span><span class="knob"></span></span>
+        <span class="cap"></span>
+      </div>
+    </div>
+    <p class="lever-hint">Drag the lever down. Or just tap it, lazy.</p>
+    <div class="slot-out" id="slotOut" aria-live="polite"></div>
+
+    <div class="parents">
+      <button class="btn ghost" id="pBtn">Convince my parents</button>
+      <p class="p-out" id="pOut" aria-live="polite"></p>
+    </div>
+
+    <div class="sec">
+      <p class="eyebrow" style="text-align:center">Your verdict card</p>
+      <div class="share-wrap">
+        <div class="chips" id="shareChips"></div>
+        <div class="vcard" id="vcard"></div>
+        <button class="btn ghost" id="shareBtn">Share / copy</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><p>Prices from Amazon/Flipkart as of 29 Oct 2026. Prices change daily — check before buying. Specs from official spec sheets and launch coverage; items marked 'reported' or 'unconfirmed' aren't officially verified.</p></footer>
+
+<div class="modal" id="secret" hidden>
+  <div class="panel modal-c">
+    <div data-specs></div>
+    <h3>Secret unlocked</h3>
+    <p>Nobody sponsors me. I just get upset when people pay ₹29,447 for a tablet that launched at ₹26,999. Also, the antenna does nothing.</p>
+    <button class="btn" id="secretClose">I will tell everyone</button>
+  </div>
+</div>
+
+<script>
+(() => {
+'use strict';
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const fmt = n => Math.round(n).toLocaleString('en-IN');
+const inr = n => '₹' + fmt(n);
+const nh = (n, h) => `<span class="nh"><span class="n">${n}</span><span class="h">${h}</span></span>`;
+const rand = (a, b) => a + Math.random() * (b - a);
+const BUDGET = 33000, ACC = '#ff5a1f', INK = '#0f0f10';
+
+/* ================= DATA =================
+   h.* strings are the "Human mode" wording: same facts, more insults. */
+const T = [
+ {id:'m60',name:'Moto Pad 60 Pro',aka:'Lenovo Idea Tab Pro',short:'60 Pro / Idea Tab Pro',tone:'#0f0f10',price:29999,best:'Best performance',
+  chip:'Dimensity 8300',antutu:1550000,antutuTxt:'~1.5–1.6M',
+  ramType:'LPDDR5X',ramSpeed:7500,storType:'UFS 3.1 (reported)',storSpeed:2000,
+  size:12.7,ar:[16,10],res:'2944×1840',resK:3,hz:144,bat:10200,chg:45,upd:2029,updTxt:'~2029 (Android 16 is last)',
+  pen:true,penTxt:'Yes',weight:617,weightTxt:'~615–620g',
+  roast:'Android 16 is its final form. No sequels.',
+  h:{best:'the obvious answer. sorry.',price:'₹3,001 left for a cover. or regret.',chip:'the class topper. insufferable about it.',perf:'topper. won\'t shut up about it.',
+   ram:'remembers 40 Chrome tabs. you can\'t remember 4 passwords.',stor:'apps open before you finish regretting',bat:'outlasts your motivation to study',
+   screen:'big, sharp, 144Hz. a show-off with a curfew',upd:'Android 16 is its funeral (~2029)',pen:'free pen. finally, something free.',weight:'normal weight. boring. good.'}},
+ {id:'redmi',name:'Redmi Pad 2 Pro',short:'Redmi Pad 2 Pro',tone:'#52525b',price:26999,best:'Best value',
+  chip:'Snapdragon 7s Gen 4',antutu:1090000,antutuTxt:'~1.0–1.18M',
+  ramType:'LPDDR4X',ramSpeed:4266,storType:'UFS 2.2',storSpeed:1000,
+  size:12.1,ar:[16,10],res:'2560×1600',resK:2.5,hz:120,bat:12000,chg:33,upd:2032,updTxt:'~2032 (7 yrs security)',
+  pen:false,penTxt:'No (₹3,999 extra)',weight:610,weightTxt:'610g',
+  roast:'RAM from the LPDDR4X museum.',
+  h:{best:'cheap, loyal, a bit slow. like a golden retriever.',price:'₹6,001 left. that\'s 20 biryanis.',chip:'B+ student. parents still disappointed.',perf:'B+ student. parents still disappointed.',
+   ram:'RAM older than your last situationship',stor:'apps load like it\'s 2019 on 2G',bat:'outlives your attention span by 3 business days',
+   screen:'decent screen. a solid 7/10, like your selfies',upd:'will outlive your crush (~2032)',pen:'pen costs ₹3,999 extra. betrayal.',weight:'610g. your wrists won\'t file a complaint'}},
+ {id:'groove',name:'Moto Pad 70 Groove',short:'Moto Pad 70 Groove',tone:'#8b8b94',price:31999,best:'Movies & music',
+  chip:'Dimensity 7400',antutu:650000,antutuTxt:'~650K',
+  ramType:'LPDDR5',ramSpeed:6400,storType:'UFS 3.1 (unconfirmed)',storSpeed:2000,
+  size:12.1,ar:[16,10],res:'2.5K',resK:2.5,hz:120,bat:10200,chg:45,upd:2030,updTxt:'~2030',
+  pen:false,penTxt:'No (support unconfirmed)',weight:760,weightTxt:'760g',
+  roast:'9 speakers, mid-range brain. Throws parties, can\'t do homework.',
+  h:{best:'a JBL speaker that also does Netflix',price:'₹1,001 left. that\'s one (1) pizza.',chip:'band kid. great vibes, bad grades.',perf:'throws parties, can\'t do homework',
+   ram:'fast-ish. like you, on a good day.',stor:'fast, allegedly. Motorola won\'t confirm.',bat:'same tank as everyone. no personality.',
+   screen:'brightest in budget. sunglasses not included',upd:'~2030. a respectable midlife crisis',pen:'pen? Motorola is "not sure"',weight:'760g. arm day, every day.'}},
+ {id:'go2',name:'OnePlus Pad Go 2',short:'OnePlus Pad Go 2',tone:'#b8b8c0',price:29447,best:'Skip at this price',
+  chip:'Dimensity 7300 Ultra',antutu:650000,antutuTxt:'~650K',
+  ramType:'LPDDR5X',ramSpeed:7500,storType:'UFS 3.1',storSpeed:2000,
+  size:12.1,ar:[7,5],res:'2800×1980',resK:2.8,hz:120,bat:10050,chg:33,upd:2030,updTxt:'~2030 ("5 yrs of updates")',
+  pen:false,penTxt:'No (sold separately)',weight:597,weightTxt:'597g',
+  roast:'Priced like a collector\'s item. It is not a collector\'s item.',
+  h:{best:'overpriced. walk away slowly.',price:'paying ₹2,448 extra for literally nothing',chip:'back-bencher with a premium fee',perf:'tied for last. participation trophy.',
+   ram:'fast memory, slow everything else',stor:'quick storage, overpriced wrapper',bat:'smallest battery. also smallest reason to buy it.',
+   screen:'taller 7:5. perfect for PDFs you\'ll never read',upd:'"5 years". OnePlus did not elaborate.',pen:'pen sold separately. obviously.',weight:'lightest. your wrists send thank-you cards.'}},
+ {id:'m70',name:'Moto Pad 70 Pro',short:'Moto Pad 70 Pro',tone:ACC,price:34999,bonus:true,best:'Bonus · over budget',
+  chip:'Snapdragon 8s Gen 4',antutu:2500000,antutuTxt:'2.5M+ (Motorola claim)',
+  ramType:'LPDDR5X',ramSpeed:7500,storType:'UFS 3.1 (reported)',storSpeed:2000,
+  size:13,ar:[16,10],res:'3504×2190',resK:3.5,hz:144,bat:10200,chg:45,upd:2030,updTxt:'~2030',
+  pen:true,penTxt:'Yes',weight:null,weightTxt:'Not listed',
+  roast:'Flagship chip, 13-inch screen, and a ₹2,000 hole in your budget.',
+  h:{best:'the rich kid',price:'needs an SBI card and a stern talk with Papa',chip:'rich kid with a private tutor',perf:'flagship brain. mentions it at every party.',
+   ram:'remembers everything. like an ex.',stor:'fast. like money leaving your account.',bat:'lasts all day. unlike your EMI patience.',
+   screen:'a TV with commitment issues',upd:'~2030. rich AND mortal.',pen:'free pen. rich people get free stuff. classic.',weight:'unknown. like your bank balance after this.'}},
+];
+const byId = id => T.find(t => t.id === id);
+const fullName = t => t.aka ? `${t.name} / ${t.aka}` : t.name;
+
+/* ================= SCREEN SCENES (each tablet "plays" something on screen) ================= */
+const GRID = (() => { let d = ''; for (let x = 10; x < 160; x += 10) d += `M${x} 0V100`; for (let y = 10; y < 100; y += 10) d += `M0 ${y}H160`; return `<path class="grid" d="${d}"/>`; })();
+const SCENES = {
+  // pen in the box -> an architect's sketch drawing itself
+  m60: `${GRID}<text x="14" y="14">SKETCH · A-01</text>
+    <path class="dr" pathLength="1" style="--d:0s" d="M16 80 H144"/>
+    <path class="dr" pathLength="1" style="--d:.3s" d="M28 80 V46 H64 V80"/>
+    <path class="dr" pathLength="1" style="--d:.6s" d="M64 80 V24 H114 V80"/>
+    <path class="dr" pathLength="1" style="--d:.9s" d="M114 80 V54 H134 V80"/>
+    <path class="dr" pathLength="1" style="--d:1.2s" d="M72 32h10v8h-10z M96 32h10v8h-10z M72 48h10v8h-10z M96 48h10v8h-10z M34 54h10v8h-10z M48 54h10v8h-10z M86 80v-14h8v14"/>
+    <path class="dr acc" pathLength="1" style="--d:1.6s" d="M28 89 H134 M28 86 v6 M134 86 v6"/>`,
+  // biggest battery -> a battery that refuses to die
+  redmi: `<text x="14" y="18">12,000 mAh</text>
+    <rect x="42" y="36" width="72" height="30" rx="5" fill="none" stroke="#d4d4d8" stroke-width="1.5"/>
+    <rect x="114" y="45" width="5" height="12" rx="1.5" fill="#d4d4d8"/>
+    <rect class="bat" x="46" y="40" width="64" height="22" rx="2.5" fill="#d4d4d8"/>
+    <text x="14" y="88">still going. unlike you.</text>`,
+  // speakers -> an equalizer and a progress bar
+  groove: `<text x="14" y="16">▶ NOW PLAYING</text>
+    ${Array.from({ length: 14 }, (_, i) => `<rect class="eq" x="${22 + i * 8.7}" y="28" width="5" height="44" rx="2" style="--t:${(.5 + (i * 37 % 7) / 10).toFixed(2)}s;--d:-${(i * 0.13).toFixed(2)}s"/>`).join('')}
+    <rect x="22" y="82" width="116" height="2" rx="1" fill="#3f3f46"/><rect class="prog" x="22" y="82" width="116" height="2" rx="1" fill="${ACC}"/>`,
+  // price went up since launch -> a stonks chart
+  go2: `${GRID}<text x="14" y="14">PRICE HISTORY</text>
+    <path class="dr acc" pathLength="1" d="M18 80 L36 72 L52 76 L70 62 L88 66 L106 48 L124 52 L142 28"/>
+    <text x="16" y="92">₹26,999</text><text class="pop" x="100" y="24" fill="${ACC}" style="fill:${ACC}">₹29,447 ↑</text>`,
+  // flagship -> spinning orbit, very expensive-looking
+  m70: `<text x="14" y="16">FLAGSHIP MODE</text>
+    <g class="orbit"><ellipse cx="80" cy="46" rx="42" ry="12" fill="none" stroke="#d4d4d8" stroke-width="1"/>
+    <ellipse cx="80" cy="46" rx="42" ry="12" fill="none" stroke="#8b8b94" stroke-width="1" transform="rotate(60 80 46)"/>
+    <ellipse cx="80" cy="46" rx="42" ry="12" fill="none" stroke="#52525b" stroke-width="1" transform="rotate(120 80 46)"/></g>
+    <circle class="pulse" cx="80" cy="46" r="5" fill="${ACC}"/>
+    <text x="14" y="90">3.5K · 144Hz · ₹₹₹</text>`,
+};
+const tabArt = t => `<div class="art-box"><div class="tab-art" style="aspect-ratio:${t.ar[0]}/${t.ar[1]}"><div class="scr"><svg class="scene" viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${SCENES[t.id]}</svg></div></div></div>`;
+
+/* ================= SOUND ================= */
+const Sound = (() => {
+  let ctx = null, master = null, muted = false, noise = null;
+  try { muted = localStorage.getItem('specs-muted') === '1'; } catch (e) {}
+  function unlock() {
+    if (!ctx) {
+      const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
+      ctx = new AC(); master = ctx.createGain(); master.gain.value = muted ? 0 : .55; master.connect(ctx.destination);
+      noise = ctx.createBuffer(1, ctx.sampleRate * 1.5, ctx.sampleRate);
+      const d = noise.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+    }
+    if (ctx.state === 'suspended') ctx.resume();
+  }
+  const ok = () => ctx && ctx.state === 'running' && !muted;
+  const env = (g, t, a, peak, dur) => { g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(peak, t + a); g.gain.exponentialRampToValueAtTime(.0001, t + dur); };
+  function tone(f, type, t, dur, vol, to) { const o = ctx.createOscillator(), g = ctx.createGain(); o.type = type; o.frequency.setValueAtTime(f, t);
+    if (to) o.frequency.exponentialRampToValueAtTime(to, t + dur); env(g, t, .008, vol, dur); o.connect(g).connect(master); o.start(t); o.stop(t + dur + .05); }
+  function burst(t, dur, vol, type, f0, f1, q = 1) { const s = ctx.createBufferSource(); s.buffer = noise; const f = ctx.createBiquadFilter(); f.type = type; f.Q.value = q;
+    f.frequency.setValueAtTime(f0, t); if (f1) f.frequency.exponentialRampToValueAtTime(f1, t + dur); const g = ctx.createGain(); env(g, t, Math.min(.05, dur / 3), vol, dur);
+    s.connect(f).connect(g).connect(master); s.start(t, Math.random()); s.stop(t + dur + .05); }
+  let lastTick = 0;
+  return {
+    unlock, get muted() { return muted; },
+    setMuted(m) { muted = m; try { localStorage.setItem('specs-muted', m ? '1' : '0'); } catch (e) {} if (master) master.gain.value = m ? 0 : .55; },
+    whoosh() { if (ok()) burst(ctx.currentTime, .45, .3, 'bandpass', 300, 2800, 1.4); },
+    ding() { if (!ok()) return; const t = ctx.currentTime; tone(1318.5, 'sine', t, .8, .22); tone(2637, 'sine', t, .5, .06); tone(1975.5, 'triangle', t + .07, .7, .12); },
+    tick() { if (!ok()) return; const n = performance.now(); if (n - lastTick < 28) return; lastTick = n; const t = ctx.currentTime; tone(2200, 'square', t, .025, .06); burst(t, .02, .12, 'highpass', 4000); },
+    crack(power = 1) { if (!ok()) return; const t = ctx.currentTime; burst(t, .1 + .08 * power, .3 + .3 * power, 'highpass', 2500); burst(t + .02, .15 + .2 * power, .2, 'bandpass', 6000, 2000, 3);
+      for (let i = 0; i < 3 + power * 4; i++) tone(2500 + Math.random() * 5000, 'sine', t + Math.random() * .15, .05 + Math.random() * .1, .07); tone(180, 'sine', t, .12, .25 * power, 60); },
+    shatter() { if (!ok()) return; const t = ctx.currentTime; burst(t, .35, .9, 'highpass', 1800); tone(120, 'sine', t, .25, .5, 40);
+      for (let i = 0; i < 34; i++) tone(2800 + Math.random() * 6000, 'sine', t + .05 + Math.pow(Math.random(), 1.6) * 1.3, .04 + Math.random() * .14, .05 + Math.random() * .05);
+      burst(t + .5, .7, .15, 'highpass', 5000); },
+    thud() { if (!ok()) return; const t = ctx.currentTime; tone(140, 'sine', t, .25, .6, 45); burst(t, .08, .3, 'lowpass', 900); },
+    trombone() { if (!ok()) return; let s = ctx.currentTime; [[392, .38], [370, .38], [349.2, .38], [329.6, 1.2]].forEach(([f, d], i) => {
+      const o = ctx.createOscillator(), g = ctx.createGain(), lp = ctx.createBiquadFilter(); o.type = 'sawtooth'; o.frequency.setValueAtTime(f, s); lp.type = 'lowpass'; lp.frequency.value = 1300;
+      if (i === 3) { const l = ctx.createOscillator(), lg = ctx.createGain(); l.frequency.value = 6; lg.gain.value = 9; l.connect(lg).connect(o.frequency); l.start(s); l.stop(s + d); o.frequency.exponentialRampToValueAtTime(f * .94, s + d); }
+      g.gain.setValueAtTime(.0001, s); g.gain.exponentialRampToValueAtTime(.16, s + .04); g.gain.setValueAtTime(.16, s + d - .08); g.gain.exponentialRampToValueAtTime(.0001, s + d);
+      o.connect(lp).connect(g).connect(master); o.start(s); o.stop(s + d + .02); s += d + .04; }); },
+    pop() { if (!ok()) return; const t = ctx.currentTime; tone(700, 'sine', t, .14, .35, 110); burst(t, .07, .5, 'bandpass', 1800, 600, .8);
+      for (let i = 0; i < 6; i++) burst(t + .05 + i * .06 + Math.random() * .04, .04, .12, 'highpass', 3000 + Math.random() * 3000); },
+    win() { if (!ok()) return; const t = ctx.currentTime; [523.3, 659.3, 784, 1046.5].forEach((f, i) => tone(f, 'triangle', t + i * .09, .45, .14)); },
+    clunk() { if (!ok()) return; const t = ctx.currentTime; tone(90, 'square', t, .12, .25, 50); burst(t, .1, .35, 'lowpass', 1200); },
+  };
+})();
+['pointerdown', 'keydown', 'touchstart'].forEach(ev => addEventListener(ev, Sound.unlock, { passive: true }));
+
+/* ================= UI basics ================= */
+function specsSVG() {
+  return `<svg class="specs" viewBox="0 0 100 112" aria-hidden="true">
+  <g class="sp-ant"><line x1="50" y1="22" x2="57" y2="7" stroke="#71717a" stroke-width="3" stroke-linecap="round"/><circle cx="58" cy="5.5" r="5" fill="${ACC}"/></g>
+  <rect x="7" y="40" width="8" height="18" rx="3.5" fill="#3f3f46"/><rect x="85" y="40" width="8" height="18" rx="3.5" fill="#3f3f46"/>
+  <rect x="13" y="20" width="74" height="58" rx="19" fill="#18181b"/>
+  <rect x="21" y="30" width="58" height="36" rx="12" fill="#000"/>
+  <g class="sp-eyes"><ellipse cx="38" cy="47" rx="5.5" ry="6.5" fill="#fff"/><ellipse cx="62" cy="47" rx="5.5" ry="6.5" fill="#fff"/>
+   <circle cx="40" cy="45" r="2" fill="#000"/><circle cx="64" cy="45" r="2" fill="#000"/></g>
+  <path d="M31 37.5 Q37 33 45 36" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+  <path d="M55 39 L69 39.5" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M41 58 Q50 61 60 55" stroke="${ACC}" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+  <rect x="31" y="80" width="38" height="24" rx="9" fill="#18181b"/>
+  <circle cx="50" cy="92" r="3.2" fill="${ACC}"/></svg>`;
+}
+$$('[data-specs]').forEach(el => el.innerHTML = specsSVG());
+
+const toastEl = $('#toast'); let toastT;
+function say(text, ms = 3200) { toastEl.textContent = text; toastEl.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => toastEl.classList.remove('show'), ms); }
+setTimeout(() => say('Oh, you\'re still reading? Bold.'), 70000);
+
+const nav = $('#nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive: true });
+
+const muteBtn = $('#muteBtn');
+const ICON_ON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>';
+const ICON_OFF = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M17 9l5 6M22 9l-5 6"/></svg>';
+function paintMute() { muteBtn.innerHTML = Sound.muted ? ICON_OFF : ICON_ON; muteBtn.setAttribute('aria-label', Sound.muted ? 'Unmute sound' : 'Mute sound'); }
+muteBtn.addEventListener('click', () => { Sound.setMuted(!Sound.muted); paintMute(); if (!Sound.muted) Sound.ding(); say(Sound.muted ? 'Muted. Fine. I\'ll mime.' : 'Sound on. You missed me.'); });
+paintMute();
+
+const modeBtn = $('#modeBtn');
+modeBtn.addEventListener('click', () => {
+  const human = document.body.classList.toggle('human');
+  const [a, b] = modeBtn.children; a.classList.toggle('on', !human); b.classList.toggle('on', human);
+  modeBtn.setAttribute('aria-pressed', String(human)); Sound.tick();
+  say(human ? 'Human mode: same specs, now with insults.' : 'Nerd mode: real spec names. Adjust your glasses.', 3800);
+});
+
+let taps = 0, tapT;
+$$('.specs-tap').forEach(b => b.addEventListener('click', () => {
+  b.classList.remove('boing', 'spin'); void b.offsetWidth;
+  taps++; clearTimeout(tapT); tapT = setTimeout(() => taps = 0, 1800);
+  if (taps >= 5) { taps = 0; b.classList.add('spin'); Sound.win(); $('#secret').hidden = false; }
+  else { b.classList.add('boing'); Sound.tick(); say(['Yes?', 'Stop poking me.', 'I bite. Digitally.', 'One more and I\'ll tell you a secret.'][taps - 1], 1800); }
+}));
+$('#secretClose').addEventListener('click', () => { $('#secret').hidden = true; });
+addEventListener('keydown', e => { if (e.key === 'Escape') $('#secret').hidden = true; });
+
+function countUp(el, target, dur = 1200) {
+  if (reduce) { el.textContent = inr(target); return; }
+  const t0 = performance.now();
+  (function f(now) { const p = Math.min(1, (now - t0) / dur); el.textContent = inr(target * (1 - Math.pow(1 - p, 4))); if (p < 1) requestAnimationFrame(f); })(t0);
+}
+function onView(el, cb) { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { io.disconnect(); cb(); } }), { rootMargin: '0px 0px -15% 0px' }); io.observe(el); }
+const replay = (el, cls) => { el.classList.remove(cls); void el.offsetWidth; requestAnimationFrame(() => el.classList.add(cls)); };
+
+/* ================= ROUTER ================= */
+const links = $$('#links a'), ind = $('#ind');
+function moveInd() { const a = links.find(l => l.classList.contains('on')); if (!a) return; ind.style.width = a.offsetWidth + 'px'; ind.style.transform = `translateX(${a.offsetLeft}px)`; }
+addEventListener('resize', moveInd);
+const enter = {};
+let current = null;
+const pageFrom = h => { const n = h.replace(/^#\/?/, '') || 'home'; return ['home', 'compare', 'lever'].includes(n) ? n : 'home'; };
+// handle in-page links ourselves: hash navigation is blocked in some embedded previews
+function go(page) { try { history.pushState(null, '', page === 'home' ? '#/' : '#/' + page); } catch (e) {} show(page); }
+document.addEventListener('click', e => { const a = e.target.closest('a[href^="#/"]'); if (!a) return; e.preventDefault(); go(pageFrom(a.getAttribute('href'))); });
+const route = () => show(pageFrom(location.hash));
+function show(page) {
+  links.forEach(l => l.classList.toggle('on', l.dataset.page === page));
+  moveInd();
+  if (page === current) return;
+  current = page;
+  $$('.page').forEach(p => p.classList.toggle('active', p.id === 'p-' + page));
+  scrollTo(0, 0); Sound.whoosh();
+  enter[page] && enter[page]();
+}
+addEventListener('popstate', route);
+
+(function loader() {
+  const L = $('#loader'), bar = $('#ldBar'), pct = $('#ldPct'), msg = $('#ldMsg');
+  let done = false;
+  const finish = () => { if (done) return; done = true; L.classList.add('out'); setTimeout(() => L.remove(), 600); route(); };
+  $('#ldSkip').addEventListener('click', finish);
+  const t0 = performance.now(), total = reduce ? 900 : 2500;
+  (function step(now) {
+    if (done) return;
+    const p = Math.min(1, (now - t0) / total), shown = p < .55 ? Math.round(p / .55 * 87) : 87;
+    pct.textContent = shown + '%'; bar.style.width = shown + '%';
+    if (p > .58) msg.textContent = 'don\'t worry, we\'ve seen worse.';
+    if (p >= 1) return finish();
+    requestAnimationFrame(step);
+  })(t0);
+})();
+
+/* ================= HOME ================= */
+const cardsEl = $('#cards');
+T.filter(t => !t.bonus).forEach(t => cardsEl.insertAdjacentHTML('beforeend',
+  `<button class="tcard" data-id="${t.id}">${tabArt(t)}<span class="nm">${t.name}${t.aka ? `<span class="aka">aka ${t.aka}</span>` : ''}</span>
+   <span class="pr" data-count="${t.price}">₹0</span><span class="bf ${t.id === 'm60' ? 'win' : ''}">${nh(t.best, t.h.best)}</span></button>`));
+$$('.tcard').forEach(c => c.addEventListener('click', () => { setVS(c.dataset.id); go('compare'); }));
+let homeDone = false;
+enter.home = () => {
+  if (homeDone) return; homeDone = true;
+  $$('.tcard').forEach((el, i) => setTimeout(() => { el.classList.add('in'); Sound.whoosh(); const p = el.querySelector('[data-count]'); countUp(p, +p.dataset.count); }, reduce ? 0 : 120 + i * 160));
+};
+
+/* ---------- bonus: glass you crack 4 times, then it shatters ---------- */
+$('#bonusArt').innerHTML = tabArt(byId('m70'));
+$('#bonusList').innerHTML = `<li>${nh('Snapdragon 8s Gen 4 · 2.5M+ AnTuTu (Motorola claim)', 'flagship brain. mentions it at every party.')}</li>
+  <li>13″ 3.5K 144Hz · pen in the box · Wi-Fi 7</li><li>₹4,000 off with SBI card · +₹206 Flipkart fee</li>`;
+const bonus = $('#bonus'), glass = $('#glass'), cracks = $('#cracks'), shardsEl = $('#shards'), dots = $$('#dots i'), hint = $('#lockHint');
+const HINTS = ['', 'Hey. That\'s glass.', 'It\'s cracking. You monster.', 'One more. Zero self-control.'];
+const SVGNS = 'http://www.w3.org/2000/svg';
+let hits = 0;
+function crackAt(x, y, power) {
+  const { width: W, height: H } = glass.getBoundingClientRect();
+  cracks.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const add = (d, cls) => { const p = document.createElementNS(SVGNS, 'path'); p.setAttribute('d', d); p.setAttribute('pathLength', '1'); if (cls) p.setAttribute('class', cls); cracks.appendChild(p); };
+  // jagged radial cracks; longer with every hit
+  const n = 5 + power * 2, reach = Math.max(W, H) * (.12 + power * .1);
+  for (let i = 0; i < n; i++) {
+    let a = (i / n) * Math.PI * 2 + rand(-.3, .3), px = x, py = y, d = `M${x.toFixed(1)} ${y.toFixed(1)}`;
+    const segs = 3 + (Math.random() * 3 | 0), len = reach * rand(.5, 1.1);
+    for (let s = 0; s < segs; s++) {
+      a += rand(-.45, .45); px += Math.cos(a) * len / segs; py += Math.sin(a) * len / segs; d += ` L${px.toFixed(1)} ${py.toFixed(1)}`;
+      if (Math.random() < .3) { const b = a + rand(-1, 1), bl = len / segs * rand(.4, .8); add(`M${px.toFixed(1)} ${py.toFixed(1)} L${(px + Math.cos(b) * bl).toFixed(1)} ${(py + Math.sin(b) * bl).toFixed(1)}`); }
+    }
+    add(d);
+  }
+  // little impact ring
+  const r = 6 + power * 4; let ring = '';
+  for (let i = 0; i <= 8; i++) { const a = i / 8 * Math.PI * 2, rr = r * rand(.75, 1.25); ring += `${i ? 'L' : 'M'}${(x + Math.cos(a) * rr).toFixed(1)} ${(y + Math.sin(a) * rr).toFixed(1)}`; }
+  add(ring + 'Z', 'ring');
+}
+function shatter(ix, iy) {
+  const { width: W, height: H } = glass.getBoundingClientRect();
+  // perimeter points (corners + random points per edge) walked clockwise, fanned from the impact point
+  const edge = (k, f) => Array.from({ length: k }, () => Math.random()).sort((a, b) => a - b).map(f);
+  const per = [[0, 0], ...edge(3, r => [r * W, 0]), [W, 0], ...edge(3, r => [W, r * H]), [W, H], ...edge(3, r => [W - r * W, H]), [0, H], ...edge(3, r => [0, H - r * H])];
+  const inner = per.map(([px, py]) => { const k = rand(.3, .6); return [ix + (px - ix) * k, iy + (py - iy) * k]; });
+  const polys = [];
+  per.forEach((p, i) => { const j = (i + 1) % per.length;
+    polys.push([[ix, iy], inner[i], inner[j]]);
+    polys.push([inner[i], p, per[j], inner[j]]); });
+  const maxD = Math.hypot(W, H);
+  polys.forEach(poly => {
+    const cx = poly.reduce((s, p) => s + p[0], 0) / poly.length, cy = poly.reduce((s, p) => s + p[1], 0) / poly.length;
+    const el = document.createElement('div'); el.className = 'shard';
+    el.style.clipPath = `polygon(${poly.map(([x, y]) => `${x.toFixed(1)}px ${y.toFixed(1)}px`).join(',')})`;
+    el.style.transformOrigin = `${cx}px ${cy}px`;
+    shardsEl.appendChild(el);
+    const dist = Math.hypot(cx - ix, cy - iy), dx = (cx - ix) / (dist || 1), dy = (cy - iy) / (dist || 1), rot = rand(-220, 220);
+    const anim = el.animate([
+      { transform: 'translate(0,0) rotate(0deg)', opacity: 1 },
+      { transform: `translate(${dx * rand(6, 18)}px,${dy * rand(6, 18) - 6}px) rotate(${rot * .05}deg)`, opacity: 1, offset: .12 },
+      { transform: `translate(${dx * rand(30, 120)}px,${H * .6 + rand(260, 560)}px) rotate(${rot}deg)`, opacity: 0 },
+    ], { duration: rand(1000, 1600), delay: dist / maxD * 260, easing: 'cubic-bezier(.35,0,.85,.55)', fill: 'forwards' });
+    anim.onfinish = () => el.remove();
+  });
+}
+function hitGlass(x, y) {
+  if (hits >= 4) return;
+  hits++;
+  dots.forEach((d, i) => d.classList.toggle('f', i < hits));
+  glass.classList.remove('shake'); void glass.offsetWidth; glass.classList.add('shake');
+  if (hits < 4) { crackAt(x, y, hits); hint.textContent = HINTS[hits]; Sound.crack(hits / 2); return; }
+  crackAt(x, y, 4); Sound.crack(2);
+  glass.classList.add('breaking');
+  setTimeout(() => {
+    Sound.shatter();
+    if (!reduce) shatter(x, y);
+    glass.classList.add('gone');
+    bonus.classList.add('open');
+    setTimeout(() => Sound.tick(), reduce ? 0 : 500);
+    setTimeout(() => Sound.thud(), reduce ? 0 : 1650);
+    setTimeout(() => { Sound.trombone(); say('That\'s the sound of an SBI credit card bill arriving.'); }, reduce ? 0 : 2300);
+  }, reduce ? 0 : 160);
+}
+glass.addEventListener('click', e => { const r = glass.getBoundingClientRect(); const x = e.clientX ? e.clientX - r.left : r.width / 2, y = e.clientY ? e.clientY - r.top : r.height / 2; hitGlass(x, y); });
+glass.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); const r = glass.getBoundingClientRect(); hitGlass(r.width / 2 + rand(-40, 40), r.height / 2 + rand(-20, 20)); } });
+
+const podium = $('#podium');
+podium.innerHTML = [
+  { t: byId('redmi'), n: 2, h: 76, b: 'Best value · longest support', d: .2, bg: '#3f3f46' },
+  { t: byId('m60'), n: 1, h: 116, b: 'Best performance', d: 0, bg: ACC },
+  { t: byId('groove'), n: 3, h: 52, b: 'Movies & music', d: .4, bg: '#a1a1aa' },
+].map(p => `<div class="pod"><div class="top" style="--d2:${p.d + 1}s"><h3>${p.t.name}${p.t.aka ? `<span class="aka">/ ${p.t.aka}</span>` : ''}</h3>
+  <div class="mono small">${inr(p.t.price)}</div><span class="badge">${p.b}</span></div>
+  <div class="pod-block" style="height:${p.h}px;--d:${p.d}s;--b:${p.bg}">${p.n}</div></div>`).join('');
+onView(podium, () => { podium.classList.add('go'); setTimeout(() => Sound.win(), reduce ? 0 : 1000); });
+
+/* ================= COMPARE ================= */
+const QUIPS = { vs: 'Pick two. Let them fight.', race: 'The bars are racing. Rigged by physics.', rank: 'Move the sliders. Pretend you\'re a data scientist.',
+  upd: 'Software updates: the only relationship with an expiry date on the box.', size: 'Size matters. To scale. Grow up.' };
+const tabInit = {};
+$$('#tabs button').forEach(b => b.addEventListener('click', () => showTab(b.dataset.tab)));
+function showTab(k) {
+  $$('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === k));
+  $$('.tpanel').forEach(p => p.classList.toggle('on', p.id === 't-' + k));
+  $('#cmpQuip').textContent = QUIPS[k]; Sound.tick();
+  tabInit[k] && tabInit[k]();
+}
+
+const vsA = $('#vsA'), vsB = $('#vsB');
+T.forEach(t => { const o = `<option value="${t.id}">${fullName(t)}${t.bonus ? ' (bonus)' : ''}</option>`; vsA.insertAdjacentHTML('beforeend', o); vsB.insertAdjacentHTML('beforeend', o); });
+vsA.value = 'm60'; vsB.value = 'redmi';
+const VSROWS = [
+  { n: 'Price', h: 'Wallet damage', a: t => -t.price, f: t => nh(inr(t.price) + (t.bonus ? ' (SBI card)' : ''), `${inr(t.price)}. ${t.h.price}`) },
+  { n: 'Chip', h: 'Brain', a: t => t.antutu, f: t => nh(`${t.chip} · ${t.antutuTxt}`, t.h.chip) },
+  { n: 'RAM', h: 'Memory', a: t => t.ramSpeed, f: t => nh('8GB ' + t.ramType, t.h.ram) },
+  { n: 'Storage', h: 'App speed', a: t => t.storSpeed, f: t => nh('128GB ' + t.storType, t.h.stor) },
+  { n: 'Screen', h: 'Screen', a: t => t.size * 1000 + t.hz, f: t => nh(`${t.size}″ ${t.res} · ${t.hz}Hz`, t.h.screen) },
+  { n: 'Battery', h: 'Stamina', a: t => t.bat, f: t => nh(`${fmt(t.bat)} mAh`, t.h.bat) },
+  { n: 'Charging', h: 'Refuel speed', a: t => t.chg, f: t => nh(t.chg + 'W', t.chg >= 45 ? 'full before your chai gets cold' : 'plug in, go touch grass, come back') },
+  { n: 'Security updates', h: 'Life expectancy', a: t => t.upd, f: t => nh(t.updTxt, t.h.upd) },
+  { n: 'Pen in the box', h: 'Free pen?', a: t => t.pen ? 1 : 0, f: t => nh(t.penTxt, t.h.pen) },
+  { n: 'Weight', h: 'Wrist pain', a: t => t.weight == null ? null : -t.weight, f: t => nh(t.weightTxt, t.h.weight) },
+];
+function setVS(a) { vsA.value = a; if (vsB.value === a) vsB.value = a === 'm60' ? 'redmi' : 'm60'; renderVS(true); }
+function renderVS(anim) {
+  if (vsA.value === vsB.value) vsB.value = T.find(t => t.id !== vsA.value).id;
+  const A = byId(vsA.value), B = byId(vsB.value); let wa = 0, wb = 0;
+  $('#vsTable').innerHTML = VSROWS.map(r => {
+    let ca = '', cb = ''; const x = r.a(A), y = r.a(B);
+    if (x != null && y != null && x !== y) { if (x > y) { ca = 'better'; cb = 'worse'; wa++; } else { ca = 'worse'; cb = 'better'; wb++; } }
+    return `<div class="vs-row"><div class="vs-label">${nh(r.n, r.h)}</div><div class="vs-cell ${ca}">${r.f(A)}</div><div class="vs-cell ${cb}">${r.f(B)}</div></div>`;
+  }).join('');
+  $('#vsHead').innerHTML = [A, B].map((t, i) => `<div class="vs-side ${anim ? (i ? 'slideR' : 'slideL') : ''}">${tabArt(t)}<h3>${t.name}${t.aka ? `<span class="aka">aka ${t.aka}</span>` : ''}</h3><div class="roast">“${t.roast}”</div></div>`).join('');
+  const lead = wa === wb ? null : wa > wb ? A : B;
+  $('#vsTally').innerHTML = lead ? `<b>${lead.name}</b> wins ${Math.max(wa, wb)}–${Math.min(wa, wb)}.` : `Dead even, ${wa}–${wb}. Flip a coin.`;
+  if (anim) Sound.whoosh();
+}
+vsA.addEventListener('change', () => renderVS(true));
+vsB.addEventListener('change', () => renderVS(true));
+$('#vsSwap').addEventListener('click', () => { const a = vsA.value; vsA.value = vsB.value; vsB.value = a; renderVS(true); });
+renderVS(false);
+
+const ROWS = [
+  { n: 'Performance', v: t => t.antutu, nv: t => t.antutuTxt, hv: t => t.h.perf },
+  { n: 'RAM', v: t => t.ramSpeed, nv: t => `${t.ramType} ~${fmt(t.ramSpeed)} MT/s`, hv: t => t.h.ram },
+  { n: 'Storage', v: t => t.storSpeed, nv: t => `${t.storType} ~${fmt(t.storSpeed)} MB/s`, hv: t => t.h.stor },
+  { n: 'Battery', v: t => t.bat, nv: t => `${fmt(t.bat)} mAh`, hv: t => t.h.bat },
+  { n: 'Refresh', v: t => t.hz, nv: t => `${t.hz} Hz`, hv: t => t.hz >= 144 ? 'smoother than your pickup lines' : 'smooth. like your excuses.' },
+  { n: 'Charging', v: t => t.chg, nv: t => `${t.chg} W`, hv: t => t.chg >= 45 ? 'full before your chai gets cold' : 'plug in, go touch grass' },
+  { n: 'Screen size', v: t => t.size, nv: t => `${t.size}″`, hv: t => t.size >= 13 ? 'a TV with commitment issues' : t.size >= 12.7 ? 'big enough to hide behind in class' : 'regular-sized. like your grades.' },
+];
+const raceEl = $('#race'), raceChips = $('#raceChips');
+let raceIdx = 0, raceTok = 0;
+ROWS.forEach((r, i) => { const b = document.createElement('button'); b.className = 'chip' + (i ? '' : ' on'); b.textContent = r.n;
+  b.addEventListener('click', () => { raceIdx = i; $$('.chip', raceChips).forEach((c, j) => c.classList.toggle('on', j === i)); renderRace(); }); raceChips.appendChild(b); });
+function renderRace() {
+  const row = ROWS[raceIdx], max = Math.max(...T.map(row.v)), tok = ++raceTok;
+  raceEl.classList.remove('go');
+  raceEl.innerHTML = [...T].sort((a, b) => row.v(b) - row.v(a)).map((t, i) => `<div class="bline ${row.v(t) === max ? 'win' : ''}">
+    <span class="bname">${t.short}${t.bonus ? ' <i class="tag">bonus</i>' : ''}<span class="crown">👑</span></span>
+    <span class="bval">${nh(row.nv(t), row.hv(t))}</span>
+    <div class="btrack"><div class="bfill" style="--w:${(row.v(t) / max * 100).toFixed(1)}%;--d:${i * .1}s"></div></div></div>`).join('');
+  void raceEl.offsetWidth; requestAnimationFrame(() => raceEl.classList.add('go'));
+  Sound.whoosh();
+  setTimeout(() => { if (tok !== raceTok) return; $$('.bline.win', raceEl).forEach(b => b.classList.add('crowned')); Sound.ding(); }, reduce ? 50 : 1400);
+}
+tabInit.race = renderRace;
+
+const mm = (arr, v) => { const lo = Math.min(...arr), hi = Math.max(...arr); return hi === lo ? 1 : (v - lo) / (hi - lo); };
+const CATS = [
+  { k: 'perf', n: 'Performance', s: t => mm(T.map(x => x.antutu), t.antutu) },
+  { k: 'bat', n: 'Battery', s: t => mm(T.map(x => x.bat), t.bat) },
+  { k: 'upd', n: 'Long-term updates', s: t => mm(T.map(x => x.upd), t.upd) },
+  { k: 'price', n: 'Price (cheaper = better)', s: t => 1 - mm(T.map(x => x.price), t.price) },
+  { k: 'pen', n: 'Pen in the box', s: t => t.pen ? 1 : 0 },
+  { k: 'scr', n: 'Screen', s: t => .4 * mm(T.map(x => x.size), t.size) + .3 * mm(T.map(x => x.hz), t.hz) + .3 * mm(T.map(x => x.resK), t.resK) },
+];
+const W = {};
+CATS.forEach(c => { W[c.k] = 5; $('#sliders').insertAdjacentHTML('beforeend',
+  `<div class="sl"><label for="sl-${c.k}">${c.n}<output id="o-${c.k}">5</output></label><input type="range" id="sl-${c.k}" min="0" max="10" value="5" style="--p:50%"></div>`); });
+CATS.forEach(c => { const s = $('#sl-' + c.k); s.addEventListener('input', () => { W[c.k] = +s.value; s.style.setProperty('--p', s.value * 10 + '%'); $('#o-' + c.k).textContent = s.value; renderRank(); Sound.tick(); }); });
+const incBonus = $('#incBonus'); incBonus.addEventListener('change', renderRank);
+const rankList = $('#rankList'), rankEls = {};
+T.forEach(t => { const li = document.createElement('li'); li.className = 'rk';
+  li.innerHTML = `<span class="rk-n"></span><div><div class="rk-name">${t.name}${t.aka ? `<span class="aka">aka ${t.aka}</span>` : ''}</div><div class="rk-bar"><i></i></div></div><span class="rk-pct"></span>`;
+  rankEls[t.id] = li; rankList.appendChild(li); });
+const score = t => { const sw = Object.values(W).reduce((a, b) => a + b, 0); return sw ? CATS.reduce((a, c) => a + c.s(t) * W[c.k], 0) / sw : 0; };
+function renderRank() {
+  const first = new Map(T.map(t => [t.id, rankEls[t.id].getBoundingClientRect().top]));
+  const pool = T.filter(t => !t.bonus || incBonus.checked);
+  T.forEach(t => rankEls[t.id].style.display = pool.includes(t) ? '' : 'none');
+  const ranked = pool.map(t => ({ t, s: score(t) })).sort((a, b) => b.s - a.s);
+  ranked.forEach((o, i) => { const el = rankEls[o.t.id]; el.querySelector('.rk-n').textContent = i + 1;
+    el.querySelector('.rk-bar i').style.width = (o.s * 100).toFixed(1) + '%'; el.querySelector('.rk-pct').textContent = Math.round(o.s * 100); rankList.appendChild(el); });
+  if (!reduce) ranked.forEach(({ t }) => { const el = rankEls[t.id], dy = first.get(t.id) - el.getBoundingClientRect().top;
+    if (dy && Math.abs(dy) < 600) { el.style.transition = 'none'; el.style.transform = `translateY(${dy}px)`;
+      requestAnimationFrame(() => requestAnimationFrame(() => { el.style.transition = 'transform .5s cubic-bezier(.2,.9,.25,1)'; el.style.transform = ''; })); } });
+}
+tabInit.rank = renderRank;
+
+const tl = $('#t-upd'), Y0 = 2025, Y1 = 2033, nowPct = ((2026 + 9.9 / 12 - Y0) / (Y1 - Y0) * 100).toFixed(2);
+const maxUpd = Math.max(...T.map(t => t.upd));
+tl.innerHTML = `<div class="tl-years">${Array.from({ length: 8 }, (_, i) => `<span>${Y0 + i}</span>`).join('')}</div>
+  <div class="tl-lbl"><span style="left:${nowPct}%">▼ today</span></div>` +
+  [...T].sort((a, b) => b.upd - a.upd).map((t, i) => `<div class="tl-row ${t.upd === maxUpd ? 'best' : ''}"><div class="tl-name"><span>${fullName(t)}</span><small>${nh(t.updTxt, t.h.upd)}</small></div>
+    <div class="tl-track"><div class="tl-fill" style="--w:${((t.upd - Y0) / (Y1 - Y0) * 100).toFixed(1)}%;--d:${i * .12}s"></div><i class="tl-now" style="left:${nowPct}%"></i></div></div>`).join('') +
+  `<p class="note">Bars end when security updates stop. OnePlus only says "5 years of updates", so ~2030.</p>`;
+tabInit.upd = () => { replay(tl, 'go'); Sound.whoosh(); };
+
+(function () {
+  const svg = $('#scrSvg'), S = 24, ox = 16, pad = 14;
+  const items = T.map(t => { const [a, b] = t.ar, d = Math.hypot(a, b); return { t, w: t.size * a / d, h: t.size * b / d }; });
+  const VW = Math.max(...items.map(i => i.w)) * S + ox + pad, VH = Math.max(...items.map(i => i.h)) * S + 2 * pad, oy = VH - pad;
+  svg.setAttribute('viewBox', `0 0 ${VW.toFixed(1)} ${VH.toFixed(1)}`);
+  const order = [...items].sort((a, b) => b.w * b.h - a.w * a.h);
+  svg.innerHTML = order.map(({ t, w, h }) => `<rect class="o" data-id="${t.id}" pathLength="1" x="${ox}" y="${(oy - h * S).toFixed(1)}" width="${(w * S).toFixed(1)}" height="${(h * S).toFixed(1)}" rx="5" stroke="${t.tone}"/>`).join('') +
+    order.map(({ t, w, h }) => `<text data-id="${t.id}" x="${(ox + w * S - 6).toFixed(1)}" y="${(oy - h * S + 13).toFixed(1)}" text-anchor="end" fill="${t.tone}" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700">${t.size}″${t.ar[0] === 7 ? ' 7:5' : ''}</text>`).join('');
+  items.forEach(({ t, w, h }) => { const b = document.createElement('button'); b.className = 'chip'; b.style.setProperty('--c', t.tone);
+    b.innerHTML = `<i></i>${t.short} · ${(w * h).toFixed(0)} in²`;
+    b.addEventListener('click', () => { const off = b.classList.toggle('dim'); $$(`[data-id="${t.id}"]`, svg).forEach(n => n.classList.toggle('off', off)); Sound.tick(); });
+    $('#scrLegend').appendChild(b); });
+  tabInit.size = () => { replay($('#t-size'), 'go'); Sound.whoosh(); };
+})();
+enter.compare = () => renderVS(true);
+
+/* ================= LEVER ================= */
+const NAMES = ['Moto Pad 60 Pro', 'Redmi Pad 2 Pro', 'Moto Pad 70 Groove', 'OnePlus Pad Go 2', 'Lenovo Idea Tab Pro', 'Moto Pad 70 Pro'];
+const reel = $('#reel'), H = 64, item = n => `<div>${n}</div>`;
+reel.innerHTML = [NAMES[5], NAMES[0], NAMES[1]].map(item).join('');
+let spinning = false, spins = 0;
+function spin() {
+  if (spinning) return; spinning = true; spins++;
+  const machine = $('#machine');
+  machine.classList.remove('won'); machine.classList.add('spinning'); $('#slotOut').innerHTML = '';
+  const final = Math.random() < .5 ? NAMES[0] : NAMES[4], N = 36, items = [];
+  for (let i = 0; i < N; i++) items.push(NAMES[(i * 5 + Math.floor(Math.random() * 3)) % NAMES.length]);
+  items[N - 2] = final; items[N - 3] = NAMES[3];
+  reel.innerHTML = items.map(item).join(''); reel.style.transform = 'translateY(0)';
+  const target = (N - 3) * H, dur = reduce ? 300 : 3600, t0 = performance.now() + 250;
+  let last = -1;
+  (function f(now) {
+    const p = Math.max(0, Math.min(1, (now - t0) / dur)), y = (1 - Math.pow(1 - p, 4)) * target;
+    reel.style.transform = `translateY(${-y}px)`;
+    const idx = Math.floor(y / H); if (idx !== last) { last = idx; Sound.tick(); }
+    if (p < 1) return requestAnimationFrame(f);
+    spinning = false; machine.classList.remove('spinning'); machine.classList.add('won'); Sound.ding(); confetti();
+    $('#slotOut').innerHTML = `<b>${final}.</b> The machine has spoken. Stop asking Reddit.<br><span class="small">(Same tablet as the ${final === NAMES[0] ? 'Lenovo Idea Tab Pro' : 'Moto Pad 60 Pro'}. It was never going to lose.)${spins > 2 ? ` Spin #${spins}. Still the same answer.` : ''}</span>`;
+  })(performance.now());
+}
+
+/* the lever: drag it down past FIRE degrees (or just tap) to spin */
+const leverEl = $('#lever'), arm = $('#arm'), knob = $('.knob', arm), MAX = 150, FIRE = 95;
+let ang = 0, drag = null, notch = 0;
+function setAng(a) {
+  ang = a; arm.style.transform = `rotateX(${-a}deg)`; knob.style.transform = `rotateX(${a}deg)`; // knob counter-rotates so the ball keeps facing you
+  const n = Math.floor(a / 18); if (n > notch) Sound.tick(); notch = n;
+}
+function leverMode(m) { leverEl.classList.remove('idle', 'spring', 'pulling'); if (m) leverEl.classList.add(m); }
+function springBack() { leverMode('spring'); setAng(0); setTimeout(() => { if (!drag) leverMode('idle'); }, 700); }
+function fire() { Sound.clunk(); if (navigator.vibrate) navigator.vibrate(25); springBack(); spin(); }
+function autoPull() { if (spinning) return; leverMode('pulling'); setAng(MAX); setTimeout(fire, reduce ? 0 : 270); }
+leverEl.addEventListener('pointerdown', e => { if (spinning) return; drag = { y: e.clientY, moved: false }; leverMode(null); leverEl.setPointerCapture(e.pointerId); });
+leverEl.addEventListener('pointermove', e => {
+  if (!drag) return; const dy = e.clientY - drag.y;
+  if (Math.abs(dy) > 6) drag.moved = true;
+  if (drag.moved) setAng(Math.max(0, Math.min(MAX, dy / 120 * MAX)));
+});
+leverEl.addEventListener('pointerup', () => {
+  if (!drag) return; const moved = drag.moved; drag = null;
+  if (!moved) return autoPull();
+  if (ang >= FIRE) { leverMode('pulling'); setAng(MAX); setTimeout(fire, 120); }
+  else { springBack(); say('Weak pull. Commit to something for once.'); }
+});
+leverEl.addEventListener('pointercancel', () => { if (drag) { drag = null; springBack(); } });
+leverEl.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); autoPull(); } });
+
+const PARENTS = [
+ 'The Redmi Pad 2 Pro gets security updates until ~2032. That\'s longer than most of your relationships.',
+ 'The Moto Pad 60 Pro comes with a pen in the box. A free pen, Papa. You love free things.',
+ 'It\'s ₹29,999, which is ₹3,001 under budget. I\'m basically saving you money.',
+ 'The Redmi has a 12,000 mAh battery. It lasts a full day of "studying".',
+ 'Smart Connect works with any Windows PC, so it\'s technically a work device. Technically.',
+ 'The Moto Pad 70 Groove is IP52 splash-resistant. It can survive one (1) chai incident.',
+ 'The OnePlus Pad Go 2 weighs 597g, lighter than the guilt I feel asking you for this.',
+ 'A 144Hz screen makes my notes scroll smoother. Smoother notes, better grades. Science.',
+ 'The Redmi is ₹26,999, which is ₹6,001 under budget. Call it a Diwali bonus I\'m handing back.',
+ 'Four JBL speakers with Dolby Atmos. Your morning bhajans will sound divine.',
+ 'The Moto Pad 60 Pro is 6.9mm thin. Thinner than my excuses.',
+];
+let bag = [], typing;
+$('#pBtn').addEventListener('click', () => {
+  if (!bag.length) bag = PARENTS.map((_, i) => i).sort(() => Math.random() - .5);
+  const line = PARENTS[bag.pop()], out = $('#pOut'); clearInterval(typing);
+  if (reduce) { out.textContent = line; return; }
+  let i = 0; out.textContent = '';
+  typing = setInterval(() => { out.textContent = line.slice(0, ++i); if (i % 3 === 0) Sound.tick(); if (i >= line.length) clearInterval(typing); }, 18);
+});
+
+const PICKS = [
+  { id: 'm60', name: 'Moto Pad 60 Pro', line: 'Strongest chip under budget, plus a free pen. The adult choice.' },
+  { id: 'm60', name: 'Lenovo Idea Tab Pro', line: 'The Moto Pad 60 Pro wearing a different sticker. Big-brain move.' },
+  { id: 'redmi', name: 'Redmi Pad 2 Pro', line: '₹6,001 under budget, updates till ~2032. Financially responsible. Who are you?' },
+  { id: 'groove', name: 'Moto Pad 70 Groove', line: '9 JBL speakers and 800 nits. Bathroom Netflix: approved.' },
+  { id: 'go2', name: 'OnePlus Pad Go 2', line: 'Paid ₹2,448 over launch price. Bold choice. Wrong, but bold.' },
+  { id: 'm70', name: 'Moto Pad 70 Pro', line: 'Flagship chip, 13″ screen. Requires an SBI credit card and zero shame.' },
+];
+const shareChips = $('#shareChips'), vcard = $('#vcard'); let pick = 0;
+function renderCard(anim) {
+  const p = PICKS[pick], t = byId(p.id);
+  vcard.innerHTML = `${tabArt(t)}<div><div class="vk">My pick:</div><h3>${p.name}</h3><div class="vp">${inr(t.price)}${t.bonus ? '*' : ''}</div></div>
+    <div class="vline">“${p.line}”</div><div class="vfoot">${specsSVG()}<div>Certified by <b style="color:var(--ink)">Specs</b>, a robot with opinions.<br>Tablets under ₹33K · Oct 2026</div></div>`;
+  $$('.chip', shareChips).forEach((c, i) => c.classList.toggle('on', i === pick));
+  if (anim) vcard.animate([{ transform: 'scale(.95)', opacity: .4 }, { transform: 'none', opacity: 1 }], { duration: reduce ? 1 : 450, easing: 'cubic-bezier(.3,1.5,.5,1)' });
+}
+PICKS.forEach((p, i) => { const b = document.createElement('button'); b.className = 'chip'; b.textContent = p.name;
+  b.addEventListener('click', () => { pick = i; renderCard(true); Sound.pop(); if (p.id === 'go2') say('…really? I respect your right to be wrong.'); }); shareChips.appendChild(b); });
+renderCard(false);
+$('#shareBtn').addEventListener('click', async () => {
+  const p = PICKS[pick], text = `My pick: ${p.name} (${inr(byId(p.id).price)}). "${p.line}" — judged by Specs.`;
+  try { if (navigator.share) { await navigator.share({ title: 'My tablet pick', text, url: location.href }); return; }
+    await navigator.clipboard.writeText(text + ' ' + location.href); say('Copied. Go start drama in the group chat.');
+  } catch (e) { if (e && e.name !== 'AbortError') say('Couldn\'t copy. Screenshot it like it\'s 2015.'); }
+});
+
+function confetti() {
+  Sound.pop(); if (reduce) return;
+  const c = document.createElement('canvas'); c.className = 'confetti'; document.body.appendChild(c);
+  const x = c.getContext('2d'), dpr = Math.min(2, devicePixelRatio || 1), Wd = innerWidth, Ht = innerHeight;
+  c.width = Wd * dpr; c.height = Ht * dpr; x.scale(dpr, dpr);
+  const cols = [ACC, INK, '#a1a1aa', ACC];
+  const parts = Array.from({ length: 150 }, (_, i) => ({ x: i % 2 ? Wd * .15 : Wd * .85, y: Ht * .85, vx: (i % 2 ? 1 : -1) * (2 + Math.random() * 9), vy: -(9 + Math.random() * 13),
+    r: Math.random() * 6, vr: (Math.random() - .5) * .35, w: 5 + Math.random() * 5, h: 8 + Math.random() * 7, c: cols[i % cols.length] }));
+  const t0 = performance.now();
+  (function f(now) {
+    x.clearRect(0, 0, Wd, Ht);
+    parts.forEach(p => { p.vy += .32; p.vx *= .985; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+      x.save(); x.translate(p.x, p.y); x.rotate(p.r); x.fillStyle = p.c; x.fillRect(-p.w / 2, -p.h / 2, p.w, p.h * Math.abs(Math.cos(p.r * 1.5)) + 1); x.restore(); });
+    if (now - t0 < 4000) requestAnimationFrame(f); else c.remove();
+  })(t0);
+}
+})();
+</script>
+</body>
+</html>
